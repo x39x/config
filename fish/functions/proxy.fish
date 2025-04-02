@@ -1,4 +1,4 @@
-set -g PROXY_PORT 7897
+set -g PROXY_PORT 53939
 function proxy
         if test -z "$http_proxy" -a -z "$https_proxy" -a -z "$all_proxy"
                 set -gx http_proxy "http://127.0.0.1:$PROXY_PORT"

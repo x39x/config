@@ -16,6 +16,7 @@ build
 .tmux/resurrect
 .tmux/plugins
 .cargo
+.next
 .local
 .gem
 .zcomp*

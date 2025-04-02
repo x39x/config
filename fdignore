@@ -6,6 +6,7 @@
 /dotbot
 .git
 .idea
+.next
 .vscode
 .sass-cache
 node_modules
