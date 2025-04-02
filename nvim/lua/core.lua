@@ -250,7 +250,7 @@ cmd("CBpwd", require('utils.M').cdBufferPwd, {})
 
 --NOTE: autocmd
 autocmd("BufWritePre", {
-        pattern = { "*.lua", "*.c", "*.cpp", "*.h", "*.rs", "*.go", "*.py", "*.js", "*.jsx", "*.mjs" },
+        pattern = { "*.lua", "*.c", "*.cpp", "*.h", "*.rs", "*.go", "*.py", "*.js", "*.jsx", "*.ts", "*.tsx", "*.mjs" },
         callback = function()
                 vim.lsp.buf.format { sync = true }
         end,

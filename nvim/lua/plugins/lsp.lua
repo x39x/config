@@ -8,7 +8,9 @@ local servers = {
         "gopls",
         "pyright",
 
+
         "ts_ls",
+        "tailwindcss",
         -- "racket_langserver",
 }
 

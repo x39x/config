@@ -69,9 +69,11 @@ M[#M + 1] = {
         opts = {},
         config = function()
                 vim.cmd.colorscheme "github_light"
-                -- vim.cmd.colorscheme "github_dark_default"
+                -- vim.cmd.colorscheme "github_dark"
         end,
-        dependencies = { "lunacookies/vim-colors-xcode" }
+        dependencies = {
+                "lunacookies/vim-colors-xcode",
+        }
 }
 
 M[#M + 1] = {
