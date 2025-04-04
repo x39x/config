@@ -20,8 +20,8 @@ white       = "#b1bac4"
 background  = "#0d1117"
 foreground  = "#e6edf3"
 [colors.cursor]
-text        = "#0d1117"
-cursor      = "#e6edf3"
+text       = "#FFFFFF"
+cursor     = "#ff0000"
 [colors.selection]
 background  = "#17335a"
 text        = "CellForeground"

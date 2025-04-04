@@ -1,7 +1,6 @@
 [colors.primary]
 background= '#000000'
 foreground= '#FFFFFF'
-
 [colors.normal]
 black   = "#000000"
 red     = '#FF0000'
@@ -11,7 +10,6 @@ blue    = '#0039FF'
 magenta = '#FF00FF'
 cyan    = '#00FFFF'
 white   = '#FFFFFF'
-
 [colors.bright]
 black   = "#696969"
 red     = '#FF0000'
@@ -21,4 +19,9 @@ blue    = '#0050FF'
 magenta = '#FF00FF'
 cyan    = '#00FFFF'
 white   = '#FFFFFF'
-
+[colors.cursor]
+text       = "#FFFFFF"
+cursor     = "#ff0000"
+[colors.selection]
+background = "#304d75"
+text       = "CellForeground"

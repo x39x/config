@@ -13,10 +13,10 @@ M[#M + 1] = {
                 layout = {
 
                         --val c:2 a:9
-                        { type = "padding", val = 4 },
+                        { type = "padding", val = 8 },
                         {
                                 type = "text",
-                                val = require('utils.header').e,
+                                val = require('utils.header').a,
                                 opts = {
                                         position = "center",
                                         hl = "KeyWord",
