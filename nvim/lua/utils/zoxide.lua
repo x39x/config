@@ -18,7 +18,9 @@ end
 opts.cmd = "zoxide query -ls"
 opts.default_mappings = {
         action = function(selection)
-                vim.notify(selection.path)
+                vim.schedule(function()
+                        vim.notify(selection.path, vim.log.levels.INFO)
+                end)
                 vim.cmd.cd(selection.path)
         end,
 }

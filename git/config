@@ -1,16 +1,17 @@
 [user] 
 name = Y.S.
-email = vv.ys.ma@gmail.com 
+email = x39x@gmail.com 
 [core]
 excludesfile = ~/.config/git/gitignore
 editor = nvim
 pager = delta
+
 [merge]
-tool = vimdiff
+tool = nvimdiff
 conflictstyle = diff3
 [mergetool]
 keepBackup = false 
-[mergetool "vimdiff"]
+[mergetool "nvimdiff"]
 cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 [diff]
@@ -23,4 +24,3 @@ side-by-side = true
 #WARN: PASSWORD
 [credential]
 helper = store
-
