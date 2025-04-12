@@ -32,8 +32,6 @@ local function lsp_keymaps(bufnr)
         keymap("n", "gn", require('utils.M').rename, opts)
         keymap("n", "gr", require('telescope.builtin').lsp_references, opts)
         keymap("n", "ga", vim.diagnostic.open_float, opts)
-        keymap("n", ";p", function() vim.diagnostic.goto_prev({ border = "single" }) end, opts)
-        keymap("n", ";n", function() vim.diagnostic.goto_next({ border = "single" }) end, opts)
         vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format { async = true } end, {})
 end
 
