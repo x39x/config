@@ -83,7 +83,7 @@ M[#M + 1] = {
                 'mfussenegger/nvim-dap',
                 "rcarriga/nvim-dap-ui",
         },
-        opts = require("utils.statusline")
+        opts = require("utils.heirline")
 }
 
 
