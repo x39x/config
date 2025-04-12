@@ -331,5 +331,13 @@ M[#M + 1] = {
                 }
         }
 }
+M[#M + 1] = {
+        "github/copilot.vim",
+        config = function()
+                vim.g.copilot_no_tab_map = false
+                vim.g.copilot_assume_mapped = true
+                vim.keymap.set("i", "<C-k>", 'copilot#Accept("<CR>")', { expr = true, silent = true, script = true })
+        end
+}
 
 return M
