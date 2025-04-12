@@ -15,17 +15,17 @@ opt.splitbelow     = true
 opt.number         = true
 opt.relativenumber = true
 opt.numberwidth    = 3
-opt.smartindent    = true  -- 智能缩进
-opt.copyindent     = true  -- 自动缩进时，复制已有的行的缩进结构
-opt.hlsearch       = true  -- 高亮显示搜索的匹配结果，输入结束时才显示
-opt.incsearch      = true  -- 高亮显示搜索的匹配过程，每输入一个字符，就自动跳到第一个匹配的结果：
-opt.ignorecase     = true  -- 搜索时忽略大小写
-opt.smartcase      = true  -- 智能搜索
+opt.smartindent    = true -- 智能缩进
+opt.copyindent     = true -- 自动缩进时，复制已有的行的缩进结构
+opt.hlsearch       = true -- 高亮显示搜索的匹配结果，输入结束时才显示
+opt.incsearch      = true -- 高亮显示搜索的匹配过程，每输入一个字符，就自动跳到第一个匹配的结果：
+opt.ignorecase     = true -- 搜索时忽略大小写
+opt.smartcase      = true -- 智能搜索
 --
 opt.wrap           = false --no wrap
-opt.linebreak      = true  --换行显示时不把一个单词拆开，遇到指定的符号（比如空格，连词号和其他标点符号）才换行
+opt.linebreak      = true --换行显示时不把一个单词拆开，遇到指定的符号（比如空格，连词号和其他标点符号）才换行
 opt.scrolloff      = 999
-opt.showtabline    = 0
+opt.showtabline    = 2 -- tabline,0:no
 opt.laststatus     = 3 --  one statusline
 opt.signcolumn     = 'yes' -- sign colume
 opt.list           = true
@@ -73,22 +73,23 @@ vim.filetype.add({
 
 
 
---NOTE: diagnostic config
-local signs = {
-        { name = "DiagnosticSignError", text = "▎" },
-        { name = "DiagnosticSignWarn", text = "▎" },
-        { name = "DiagnosticSignHint", text = "" },
-        { name = "DiagnosticSignInfo", text = "" },
-        --   󰌕   ✎   ▎ ▏ │             
-}
-for _, sign in ipairs(signs) do
-        vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-end
+--NOTE: LSP config
+
+vim.keymap.del("", "grn")
+vim.keymap.del("", "gra")
+vim.keymap.del("", "grr")
+vim.keymap.del("", "gri")
 
 vim.diagnostic.config({
         virtual_text = false,
         signs = {
-                active = signs,
+                text = {
+                        --   󰌕   ✎   ▎ ▏ │             
+                        [vim.diagnostic.severity.ERROR] = "▎",
+                        [vim.diagnostic.severity.WARN]  = "▎",
+                        [vim.diagnostic.severity.HINT]  = "",
+                        [vim.diagnostic.severity.INFO]  = "",
+                },
         },
         update_in_insert = true,
         underline = true,
@@ -103,12 +104,7 @@ vim.diagnostic.config({
         },
 })
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-        border = "single",
-})
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-        border = "single",
-})
+
 
 
 
@@ -221,7 +217,6 @@ keymap({ "x", }, ">", ">gv", key_opts)
 --Plugin
 keymap({ "n", "x" }, "f", require("flash").jump, key_opts)
 keymap("n", "<leader>n", require('nvim-tree.api').tree.open, key_opts)
-keymap("n", "<leader>j", require('telescope.builtin').buffers, key_opts)
 keymap("n", "<Leader>fm", require('telescope.builtin').marks, key_opts)
 keymap("n", "<leader>fr", require('telescope.builtin').builtin, key_opts)
 keymap("n", "<leader>fh", require('telescope.builtin').oldfiles, key_opts)
