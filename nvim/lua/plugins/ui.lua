@@ -1,11 +1,5 @@
 local M = {}
 
-
---PLUG: icons
-M[#M + 1] = {
-        "nvim-tree/nvim-web-devicons"
-}
-
 --PLUG: alpha
 M[#M + 1] = {
         "goolord/alpha-nvim",
@@ -63,6 +57,30 @@ M[#M + 1] = {
 }
 
 
+M[#M + 1] = {
+        "rebelot/heirline.nvim",
+        dependencies = {
+                "nvim-tree/nvim-web-devicons",
+                'neovim/nvim-lspconfig',
+                'mfussenegger/nvim-dap',
+                "rcarriga/nvim-dap-ui",
+        },
+        opts = require("utils.heirline")
+}
+
+
+M[#M + 1] = {
+        'NvChad/nvim-colorizer.lua',
+        opts = {
+                user_default_options = {
+                        RGB = false,
+                        names = false,
+                        RRGGBB = true,
+                }
+        },
+        config = false,
+}
+
 --PLUG:
 M[#M + 1] = {
         'projekt0n/github-nvim-theme',
@@ -76,26 +94,5 @@ M[#M + 1] = {
         }
 }
 
-M[#M + 1] = {
-        "rebelot/heirline.nvim",
-        dependencies = {
-                'neovim/nvim-lspconfig',
-                'mfussenegger/nvim-dap',
-                "rcarriga/nvim-dap-ui",
-        },
-        opts = require("utils.heirline")
-}
 
-
-M[#M + 1] = {
-        'NvChad/nvim-colorizer.lua',
-
-        opts = {
-                user_default_options = {
-                        RGB = true,
-                        RRGGBB = true,
-                        names = false,
-                }
-        }
-}
 return M
