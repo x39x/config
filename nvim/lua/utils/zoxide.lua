@@ -19,9 +19,13 @@ opts.cmd = "zoxide query -ls"
 opts.default_mappings = {
         action = function(selection)
                 vim.schedule(function()
-                        vim.notify(selection.path, vim.log.levels.INFO)
+                        if vim.fn.isdirectory(selection.path) == 1 then
+                                vim.cmd.cd(selection.path)
+                                vim.notify(selection.path, vim.log.levels.INFO)
+                        else
+                                vim.notify(selection.path .. " ERROR", vim.log.levels.WARN)
+                        end
                 end)
-                vim.cmd.cd(selection.path)
         end,
 }
 opts.extra_mappings = {
@@ -33,7 +37,14 @@ opts.extra_mappings = {
         },
         ["<C-t>"] = {
                 action = function(selection)
-                        vim.cmd.lcd(selection.path)
+                        vim.schedule(function()
+                                if vim.fn.isdirectory(selection.path) == 1 then
+                                        vim.cmd.lcd(selection.path)
+                                        vim.notify(selection.path, vim.log.levels.INFO)
+                                else
+                                        vim.notify(selection.path .. " ERROR", vim.log.levels.WARN)
+                                end
+                        end)
                 end
         },
 }
