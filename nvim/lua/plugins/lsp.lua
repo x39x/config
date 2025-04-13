@@ -1,5 +1,7 @@
 local M = {
         "neovim/nvim-lspconfig",
+        event = "VeryLazy",
+
 }
 local servers = {
         "lua_ls",

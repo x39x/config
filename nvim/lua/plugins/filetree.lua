@@ -1,8 +1,8 @@
 local M = {
-        "nvim-tree/nvim-tree.lua"
-}
-M.dependencies = {
-        "nvim-tree/nvim-web-devicons",
+        "nvim-tree/nvim-tree.lua",
+        dependencies = {
+                "nvim-tree/nvim-web-devicons",
+        },
 }
 
 local on_attach = function(bufnr)

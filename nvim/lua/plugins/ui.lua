@@ -22,7 +22,7 @@ M[#M + 1] = {
                         margin = 5,
                 },
 
-        }
+        },
 }
 
 
@@ -52,8 +52,7 @@ M[#M + 1] = {
                         }
                 }
         },
-        event = "VeryLazy",
-
+        event = "VeryLazy"
 }
 
 
@@ -65,7 +64,7 @@ M[#M + 1] = {
                 'mfussenegger/nvim-dap',
                 "rcarriga/nvim-dap-ui",
         },
-        opts = require("utils.heirline")
+        opts = require("utils.heirline"),
 }
 
 
@@ -78,21 +77,22 @@ M[#M + 1] = {
                         RRGGBB = true,
                 }
         },
-        config = false,
+        lazy = true
 }
 
 --PLUG:
 M[#M + 1] = {
         'projekt0n/github-nvim-theme',
+        priority = 1000,
         opts = {},
         config = function()
                 vim.cmd.colorscheme "github_light"
                 -- vim.cmd.colorscheme "github_dark"
         end,
-        dependencies = {
-                "lunacookies/vim-colors-xcode",
-        }
 }
 
+M[#M + 1] = {
+        "lunacookies/vim-colors-xcode",
+}
 
 return M

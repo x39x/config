@@ -4,7 +4,7 @@ local M = {}
 M[#M + 1] = {
         "kylechui/nvim-surround",
         version = "*",
-        config = true,
+        opts = {},
         event = "VeryLazy",
 }
 
@@ -19,6 +19,7 @@ M[#M + 1] = {
                 require("nvim-autopairs").get_rules("'")[1].not_filetypes = { "scheme", "lisp" }
                 require("nvim-autopairs").get_rules("`")[1].not_filetypes = { "typst" }
         end,
+        event = "VeryLazy",
 }
 
 -- PLUG: ts-comments
@@ -75,12 +76,12 @@ M[#M + 1] = {
                         },
                 },
         },
+        event = "VeryLazy",
 }
 
 --PLUG:  motion
 M[#M + 1] = {
         "folke/flash.nvim",
-        event = "VeryLazy",
         opts = {
                 labels = "asdfghjkl;weruiopzxcvnm",
                 modes = {
@@ -103,6 +104,7 @@ M[#M + 1] = {
                         enabled = false,
                 },
         },
+        event = "VeryLazy",
 }
 
 
@@ -116,6 +118,7 @@ M[#M + 1] = {
                         return { 'treesitter', 'indent' }
                 end
         },
+        event = "VeryLazy",
 }
 
 
@@ -152,8 +155,8 @@ M[#M + 1] = {
                                 },
                         },
                 })
-        end
-
+        end,
+        event = "VeryLazy",
 }
 
 --PLUG: align
@@ -162,7 +165,8 @@ M[#M + 1] = {
         config = function()
                 local set = vim.keymap.set
                 set({ "n", "v" }, ";a", "<Plug>(EasyAlign)", { noremap = true, silent = true })
-        end
+        end,
+        event = "VeryLazy",
 }
 
 --PLUG: table

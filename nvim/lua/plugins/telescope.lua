@@ -2,6 +2,7 @@ local theme = require("utils.telescope").picker_theme
 
 local M = {
         "nvim-telescope/telescope.nvim",
+
 }
 
 M.dependencies = {
