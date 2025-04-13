@@ -4,40 +4,51 @@ local M = {
 local servers = {
         "lua_ls",
         "clangd",
-        "rust_analyzer",
         "gopls",
         "pyright",
-
+        "rust_analyzer",
 
         "ts_ls",
         "tailwindcss",
         -- "racket_langserver",
 }
 
-local function lsp_keymaps(bufnr)
-        --  vim.lsp.buf.references()
-        --  vim.lsp.buf.rename()
-        --  vim.lsp.buf.definition()
-        --  vim.lsp.buf.code_action()
-        --  vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })
-        --  vim.diagnostic.setloclist()
 
+local function lsp_keymaps(bufnr)
         local opts = { noremap = true, silent = true, buffer = bufnr, }
         local keymap = vim.keymap.set
-        keymap("n", "gt", vim.lsp.buf.signature_help, opts)
+
+        keymap("n", "gl", function()
+                vim.lsp.buf.hover({
+                        border = "single",
+                })
+        end, opts)
+        keymap("n", "ga", function()
+                vim.diagnostic.open_float({
+                        border = "single",
+                })
+        end, opts)
+        keymap("n", "ge", function()
+                vim.lsp.buf.signature_help {
+                        border = "single",
+                }
+        end, opts)
         keymap("n", "gD", vim.lsp.buf.declaration, opts)
         keymap("n", "gd", require('telescope.builtin').lsp_definitions, opts)
-        keymap("n", "gl", vim.lsp.buf.hover, opts)
         keymap("n", "go", require('telescope.builtin').lsp_implementations, opts)
-        keymap("n", "gn", require('utils.M').rename, opts)
         keymap("n", "gr", require('telescope.builtin').lsp_references, opts)
-        keymap("n", "ga", vim.diagnostic.open_float, opts)
-        vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format { async = true } end, {})
+        keymap("n", "gn", require('utils.M').rename, opts)
+        keymap('n', '<leader>;j', function()
+                vim.diagnostic.jump({ count = -1, float = true })
+        end)
+        keymap('n', '<leader>;k', function()
+                vim.diagnostic.jump({ count = 1, float = true })
+        end)
+        vim.api.nvim_create_user_command('F', function() vim.lsp.buf.format { async = true } end, {})
 end
 
 
 M.dependencies = {
-        "hrsh7th/cmp-nvim-lsp",
         {
                 "williamboman/mason.nvim",
                 opts = {
@@ -74,7 +85,7 @@ M.dependencies = {
 
 M.config = function()
         local lspconfig = require("lspconfig")
-        local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
         local on_attach = function(client, bufnr)
                 -- ???
                 if client.name == "ts_ls" then
@@ -84,14 +95,9 @@ M.config = function()
                 lsp_keymaps(bufnr)
         end
 
-        --  cmp
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
-
         for _, server in pairs(servers) do
                 local opts = {
                         on_attach = on_attach,
-                        capabilities = capabilities,
                 }
                 local has_custom_opts, server_custom_opts = pcall(require,
                         "utils.lsp_settings." .. server)
