@@ -2,9 +2,9 @@
 
 local python_path
 if vim.env.VIRTUAL_ENV then
-        python_path = vim.env.VIRTUAL_ENV .. '/' .. 'bin' .. '/' .. 'python'
+        python_path = vim.env.VIRTUAL_ENV .. "/" .. "bin" .. "/" .. "python"
 else
-        python_path = vim.fn.exepath('python3') or vim.fn.exepath('python') or 'python'
+        python_path = vim.fn.exepath("python3") or vim.fn.exepath("python") or "python"
 end
 
 return {
