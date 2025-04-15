@@ -1,6 +1,6 @@
 [user] 
-name = Y.S.
-email = 39@no.email 
+name = Matsu
+email = matsu3x9@icloud.com 
 [core]
 excludesfile = ~/.config/git/gitignore
 editor = nvim
