@@ -1,8 +1,8 @@
 local M = {}
 
 local create_mapping = function(prompt_bufnr, mapping_config)
-        local actions = require('telescope.actions')
-        local action_state = require('telescope.actions.state')
+        local actions = require("telescope.actions")
+        local action_state = require("telescope.actions.state")
         return function()
                 local selection = action_state.get_selected_entry()
 
@@ -11,7 +11,6 @@ local create_mapping = function(prompt_bufnr, mapping_config)
                 mapping_config.action(selection)
         end
 end
-
 
 M.picker_theme = {
         single_dropdown = function(opts)
@@ -47,20 +46,20 @@ M.picker_theme = {
 function M.custom_picker(opts)
         -- require
         local pickers = require("telescope.pickers")
-        local finders = require "telescope.finders"
+        local finders = require("telescope.finders")
         local conf = require("telescope.config").values
-        local utils = require('telescope.utils')
-        local actions = require('telescope.actions')
-        local theme = require('telescope.themes').get_ivy(M.picker_theme.simple_ivy())
+        local utils = require("telescope.utils")
+        local actions = require("telescope.actions")
+        local theme = require("telescope.themes").get_ivy(M.picker_theme.simple_ivy())
         local shell = vim.o.shell or "/bin/sh"
 
         pickers.new(theme, {
                 prompt_title = opts.title,
 
-                finder = finders.new_table {
+                finder = finders.new_table({
                         results = utils.get_os_command_output({ shell, "-c", opts.cmd }),
-                        entry_maker = opts.entry_maker
-                },
+                        entry_maker = opts.entry_maker,
+                }),
                 sorter = conf.generic_sorter(),
 
                 attach_mappings = function(prompt_bufnr, map)
