@@ -12,10 +12,10 @@ M[#M + 1] = {
 M[#M + 1] = {
         "windwp/nvim-autopairs",
         config = function()
-                require("nvim-autopairs").setup {
+                require("nvim-autopairs").setup({
                         disable_filetype = { "TelescopePrompt", "fzf" },
-                        enable_check_bracket_line = false
-                }
+                        enable_check_bracket_line = false,
+                })
                 require("nvim-autopairs").get_rules("'")[1].not_filetypes = { "scheme", "lisp" }
                 require("nvim-autopairs").get_rules("`")[1].not_filetypes = { "typst" }
         end,
@@ -34,10 +34,10 @@ M[#M + 1] = {
         "folke/todo-comments.nvim",
         opts = {
                 keywords = {
-                        FIX = { icon = "󰨰 ", color = "#DC2626", alt = { "BUG", "ISSUE" }, },
+                        FIX = { icon = "󰨰 ", color = "#DC2626", alt = { "BUG", "ISSUE" } },
                         TEST = { icon = " ", color = "#AF7AC5", alt = { "FUNC", "PLUG" } },
                         WARN = { icon = " ", color = "#C0392B" },
-                        TODO = { icon = " ", color = "#DC2626", },
+                        TODO = { icon = " ", color = "#DC2626" },
                         DONE = { icon = " ", color = "#1957F3" },
                         NOTE = { icon = "", color = "#10B981", alt = { "INFO", "TIPS" } },
                 },
@@ -107,20 +107,17 @@ M[#M + 1] = {
         event = "VeryLazy",
 }
 
-
-
 --PLUG: fold
 M[#M + 1] = {
         "kevinhwang91/nvim-ufo",
         dependencies = "kevinhwang91/promise-async",
         opts = {
                 provider_selector = function(_, _, _)
-                        return { 'treesitter', 'indent' }
-                end
+                        return { "treesitter", "indent" }
+                end,
         },
         event = "VeryLazy",
 }
-
 
 --PLUG: treesitter
 M[#M + 1] = {
@@ -145,13 +142,12 @@ M[#M + 1] = {
                                         init_selection = false,
                                         scope_incremental = false,
                                 },
-
                         },
                         textsubjects = {
                                 enable = true,
-                                prev_selection = '.',
+                                prev_selection = ".",
                                 keymaps = {
-                                        ['<CR>'] = 'textsubjects-smart',
+                                        ["<CR>"] = "textsubjects-smart",
                                 },
                         },
                 })
@@ -174,6 +170,5 @@ M[#M + 1] = {
         "dhruvasagar/vim-table-mode",
         ft = "markdown",
 }
-
 
 return M

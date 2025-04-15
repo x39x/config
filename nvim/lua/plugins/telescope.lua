@@ -2,7 +2,6 @@ local theme = require("utils.telescope").picker_theme
 
 local M = {
         "nvim-telescope/telescope.nvim",
-
 }
 
 M.dependencies = {
@@ -11,14 +10,13 @@ M.dependencies = {
         "nvim-telescope/telescope-ui-select.nvim",
         {
                 "nvim-telescope/telescope-fzf-native.nvim",
-                build =
-                "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
-        }
+                build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+        },
 }
 
 M.config = function()
         local telescope = require("telescope")
-        local actions = require "telescope.actions"
+        local actions = require("telescope.actions")
         local trouble = require("trouble.sources.telescope")
         local map = function(maps)
                 maps = maps or {}
@@ -37,7 +35,7 @@ M.config = function()
                 end
                 return mappings
         end
-        telescope.setup {
+        telescope.setup({
                 defaults = {
                         prompt_prefix = " ",
                         selection_caret = " ",
@@ -66,7 +64,7 @@ M.config = function()
                                 n = {
                                         ["<C-c>"] = actions.close,
                                 },
-                        }
+                        },
                 },
 
                 pickers = {
@@ -79,7 +77,7 @@ M.config = function()
                         buffers = theme.simple_ivy({
                                 initial_mode = "normal",
                                 theme = "dropdown",
-                                mappings = map {
+                                mappings = map({
                                         i = {
                                                 ["<c-d>"] = "delete_buffer",
                                                 ["<M-w>"] = "delete_buffer",
@@ -88,38 +86,37 @@ M.config = function()
                                                 ["<c-d>"] = "delete_buffer",
                                                 ["<M-w>"] = "delete_buffer",
                                         },
-                                },
+                                }),
                                 path_display = { "tail" },
                         }),
 
                         oldfiles = theme.simple_ivy({
                                 previewer = false,
-                                mappings = map()
+                                mappings = map(),
                         }),
 
                         find_files = theme.simple_ivy({
                                 previewer = false,
-                                find_command = { "fd", "-H", },
-                                mappings = map()
+                                find_command = { "fd", "-H" },
+                                mappings = map(),
                         }),
 
                         live_grep = theme.simple_ivy({
                                 find_command = { "rg" },
-                                mappings = map()
+                                mappings = map(),
                         }),
 
                         current_buffer_fuzzy_find = theme.simple_ivy({
                                 find_command = { "rg" },
-                                mappings = map()
+                                mappings = map(),
                         }),
                         lsp_references = theme.simple_ivy({
-                                mappings = map()
+                                mappings = map(),
                         }),
 
                         lsp_definitions = theme.simple_ivy({
-                                mappings = map()
+                                mappings = map(),
                         }),
-
                 },
 
                 extensions = {
@@ -131,14 +128,10 @@ M.config = function()
                         ["ui-select"] = {
                                 require("telescope.themes").get_dropdown(theme.single_dropdown({})),
                         },
-                }
-
-
-        }
-        telescope.load_extension('fzf')
-        telescope.load_extension('ui-select')
+                },
+        })
+        telescope.load_extension("fzf")
+        telescope.load_extension("ui-select")
 end
-
-
 
 return M

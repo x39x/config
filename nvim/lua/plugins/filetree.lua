@@ -6,7 +6,7 @@ local M = {
 }
 
 local on_attach = function(bufnr)
-        local api = require "nvim-tree.api"
+        local api = require("nvim-tree.api")
         local keymap_set = vim.keymap.set
         local keymap_del = vim.keymap.del
 
@@ -30,14 +30,14 @@ local on_attach = function(bufnr)
         keymap_del("n", "x", { buffer = bufnr })
         keymap_del("n", "c", { buffer = bufnr })
 
-        keymap_set("n", "l", api.tree.change_root_to_node, make_opts "next")
-        keymap_set("n", "i", api.node.navigate.parent, make_opts "parent")
-        keymap_set("n", "h", parent_root_and_collapse, make_opts "pre")
-        keymap_set("n", "yy", api.fs.copy.node, make_opts "copy")
-        keymap_set("n", "dd", api.fs.remove, make_opts "delete")
-        keymap_set("n", "cc", api.fs.cut, make_opts "delete")
-        keymap_set("n", "=", api.node.run.system, make_opts "open system")
-        keymap_set("n", "Y", api.fs.copy.absolute_path, make_opts "absolute_path")
+        keymap_set("n", "l", api.tree.change_root_to_node, make_opts("next"))
+        keymap_set("n", "i", api.node.navigate.parent, make_opts("parent"))
+        keymap_set("n", "h", parent_root_and_collapse, make_opts("pre"))
+        keymap_set("n", "yy", api.fs.copy.node, make_opts("copy"))
+        keymap_set("n", "dd", api.fs.remove, make_opts("delete"))
+        keymap_set("n", "cc", api.fs.cut, make_opts("delete"))
+        keymap_set("n", "=", api.node.run.system, make_opts("open system"))
+        keymap_set("n", "Y", api.fs.copy.absolute_path, make_opts("absolute_path"))
 end
 
 M.opts = {
@@ -68,13 +68,13 @@ M.opts = {
                 root_folder_label = false,
                 highlight_git = true,
                 highlight_opened_files = "none",
-                icons = { show = { git = false, } }
+                icons = { show = { git = false } },
         },
         filters = {
                 dotfiles = false,
                 custom = {
                         ".DS_Store",
-                }
+                },
         },
 }
 

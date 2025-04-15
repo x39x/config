@@ -1,11 +1,10 @@
 local M = {
-        'saghen/blink.cmp',
-        version = '*',
+        "saghen/blink.cmp",
+        version = "*",
         event = "VeryLazy",
 }
 
-
-local cmp_border = { " ", " ", " ", " ", " ", " ", " ", " ", }
+local cmp_border = { " ", " ", " ", " ", " ", " ", " ", " " }
 M.dependencies = {
         "L3MON4D3/LuaSnip",
         dependencies = {
@@ -15,23 +14,36 @@ M.dependencies = {
                 local luasnip = require("luasnip")
 
                 luasnip.config.set_config({
-                        enable_autosnippets = true
+                        enable_autosnippets = true,
                 })
                 require("luasnip/loaders/from_vscode").lazy_load({
-                        include = { "lua", "cpp", "c", "rust", "go", "python", "javascript", "javascriptreact", "typescript", "typescriptreact", "css", "html" }
+                        include = {
+                                "lua",
+                                "cpp",
+                                "c",
+                                "rust",
+                                "go",
+                                "python",
+                                "javascript",
+                                "javascriptreact",
+                                "typescript",
+                                "typescriptreact",
+                                "css",
+                                "html",
+                        },
                 })
                 require("luasnip.loaders.from_vscode").lazy_load({
-                        paths = { vim.fn.stdpath("config") .. "/snippets" }
+                        paths = { vim.fn.stdpath("config") .. "/snippets" },
                 })
-        end
+        end,
 }
 
 M.opts = {
 
-        snippets = { preset = 'luasnip' },
+        snippets = { preset = "luasnip" },
         signature = {
                 enabled = true,
-                window = { border = cmp_border, scrollbar = false }
+                window = { border = cmp_border, scrollbar = false },
         },
 
         completion = {
@@ -39,12 +51,12 @@ M.opts = {
                         border = cmp_border,
                         scrollbar = false,
                 },
-                documentation = { window = { border = 'single', scrollbar = false, }, auto_show = false },
+                documentation = { window = { border = "single", scrollbar = false }, auto_show = false },
         },
         keymap = {
-                ['<C-space>'] = {},
-                ['<CR>'] = { 'accept', 'fallback' },
-                ['<C-y>'] = { 'show', 'show_documentation', 'hide_documentation' },
+                ["<C-space>"] = {},
+                ["<CR>"] = { "accept", "fallback" },
+                ["<C-y>"] = { "show", "show_documentation", "hide_documentation" },
         },
 }
 return M

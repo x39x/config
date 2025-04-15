@@ -10,21 +10,18 @@ M[#M + 1] = {
                         { type = "padding", val = 8 },
                         {
                                 type = "text",
-                                val = require('utils.header').a,
+                                val = require("utils.header").a,
                                 opts = {
                                         position = "center",
                                         hl = "KeyWord",
                                 },
-
                         },
                 },
                 opts = {
                         margin = 5,
                 },
-
         },
 }
-
 
 --PLUG:
 M[#M + 1] = {
@@ -49,44 +46,47 @@ M[#M + 1] = {
                         buftypes = {
                                 "terminal",
                                 "nofile",
-                        }
-                }
+                        },
+                },
         },
-        event = "VeryLazy"
+        event = "VeryLazy",
 }
-
 
 M[#M + 1] = {
         "rebelot/heirline.nvim",
         dependencies = {
                 "nvim-tree/nvim-web-devicons",
-                'neovim/nvim-lspconfig',
-                'mfussenegger/nvim-dap',
-                "rcarriga/nvim-dap-ui",
+                "neovim/nvim-lspconfig",
         },
         opts = require("utils.heirline"),
 }
 
-
 M[#M + 1] = {
-        'NvChad/nvim-colorizer.lua',
+        "NvChad/nvim-colorizer.lua",
         opts = {
                 user_default_options = {
                         RGB = false,
                         names = false,
                         RRGGBB = true,
-                }
+                },
         },
-        lazy = true
+        -- lazy = true
 }
 
 --PLUG:
 M[#M + 1] = {
-        'projekt0n/github-nvim-theme',
+        "projekt0n/github-nvim-theme",
         priority = 1000,
-        opts = {},
         config = function()
-                vim.cmd.colorscheme "github_light"
+                require("github-theme").setup({
+                        groups = {
+                                all = {
+                                        TabLineSel = { fg = "palette.red", bg = "bg", bold = true },
+                                        BlinkCmpKind = { link = "KeyWord" },
+                                },
+                        },
+                })
+                vim.cmd.colorscheme("github_light")
                 -- vim.cmd.colorscheme "github_dark"
         end,
 }
