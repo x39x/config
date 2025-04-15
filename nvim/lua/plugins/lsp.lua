@@ -41,7 +41,7 @@ local function lsp_keymaps(bufnr)
         keymap("n", "gd", require("telescope.builtin").lsp_definitions, opts)
         keymap("n", "go", require("telescope.builtin").lsp_implementations, opts)
         keymap("n", "gr", require("telescope.builtin").lsp_references, opts)
-        keymap("n", "gn", require("utils.M").rename, opts)
+        keymap("n", "gn", require("39.M").rename, opts)
         keymap("n", "<leader>;j", function()
                 vim.diagnostic.jump({ count = -1, float = true })
         end, opts)
@@ -105,7 +105,7 @@ M.config = function()
                 local opts = {
                         on_attach = on_attach,
                 }
-                local has_custom_opts, server_custom_opts = pcall(require, "utils.lsp." .. server)
+                local has_custom_opts, server_custom_opts = pcall(require, "39.lsp." .. server)
                 if has_custom_opts then
                         opts = vim.tbl_deep_extend("force", opts, server_custom_opts)
                 end

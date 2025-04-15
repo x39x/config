@@ -1,7 +1,7 @@
 return function()
         local utils = require("heirline.utils")
-        local tabline = require("utils.heirline.tabline")
-        local statusline = require("utils.heirline.statusline")
+        local tabline = require("39.heirline.tabline")
+        local statusline = require("39.heirline.statusline")
 
         local function setup_colors()
                 return {

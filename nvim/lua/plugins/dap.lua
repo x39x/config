@@ -26,12 +26,12 @@ end
 local keys = {
         {
                 "<leader>dl",
-                require("utils.dap.handler").launch,
+                require("39.dap.handler").launch,
                 desc = "Dap Launch",
         },
         {
                 "<leader>dt",
-                require("utils.dap.handler").terminate,
+                require("39.dap.handler").terminate,
                 desc = "Dap Terminate",
         },
 }
