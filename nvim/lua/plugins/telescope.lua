@@ -1,4 +1,4 @@
-local theme = require("utils.telescope").picker_theme
+local theme = require("39.telescope_tools").picker_theme
 
 local M = {
         "nvim-telescope/telescope.nvim",

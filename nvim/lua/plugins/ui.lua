@@ -10,7 +10,7 @@ M[#M + 1] = {
                         { type = "padding", val = 8 },
                         {
                                 type = "text",
-                                val = require("utils.header").a,
+                                val = require("39.header").a,
                                 opts = {
                                         position = "center",
                                         hl = "KeyWord",
@@ -58,7 +58,7 @@ M[#M + 1] = {
                 "nvim-tree/nvim-web-devicons",
                 "neovim/nvim-lspconfig",
         },
-        opts = require("utils.heirline"),
+        opts = require("39.heirline"),
 }
 
 M[#M + 1] = {
