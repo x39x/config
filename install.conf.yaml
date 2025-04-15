@@ -34,6 +34,8 @@
     ~/Library/Rime/default.custom.yaml: Rime/default.custom.yaml
     ~/Library/Rime/squirrel.custom.yaml: Rime/squirrel.custom.yaml
     ~/Library/Rime/double_pinyin.custom.yaml: Rime/double_pinyin.custom.yaml
+    ~/Library/Application Support/lazygit/config.yml: lazygit.yml
+
 
 - shell:
    - git submodule sync --recursive

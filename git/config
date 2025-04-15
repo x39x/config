@@ -1,26 +1,24 @@
 [user] 
 name = Y.S.
-email = vv.ys.ma@gmail.com 
+email = 39@no.email 
 [core]
 excludesfile = ~/.config/git/gitignore
 editor = nvim
-pager = delta
+
 [merge]
-tool = vimdiff
+tool = nvimdiff
 conflictstyle = diff3
 [mergetool]
 keepBackup = false 
-[mergetool "vimdiff"]
+[mergetool "nvimdiff"]
 cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 [diff]
+external = difft
 colorMoved = default 
-[interactive]
-diffFilter = delta --color-only
-[delta]
-side-by-side = true
+# git log -p --ext-diff
+# git show --ext-diff
 
-#WARN: PASSWORD
+#WARN: storing authentication information (recommended to use cache)
 [credential]
 helper = store
-

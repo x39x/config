@@ -22,7 +22,7 @@ if status is-interactive
         set -x fish_greeting ""
 
         function fish_user_key_bindings
-                bind -M default \ef '__fzf_search_directory'
+                # bind -M default \ef '__fzf_search_directory'
                 bind -M default \cr '__fzf_search_history; and commandline -f repaint'
         end
 

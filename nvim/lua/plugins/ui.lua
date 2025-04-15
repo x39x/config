@@ -1,11 +1,5 @@
 local M = {}
 
-
---PLUG: icons
-M[#M + 1] = {
-        "nvim-tree/nvim-web-devicons"
-}
-
 --PLUG: alpha
 M[#M + 1] = {
         "goolord/alpha-nvim",
@@ -16,21 +10,18 @@ M[#M + 1] = {
                         { type = "padding", val = 8 },
                         {
                                 type = "text",
-                                val = require('utils.header').a,
+                                val = require("utils.header").a,
                                 opts = {
                                         position = "center",
                                         hl = "KeyWord",
                                 },
-
                         },
                 },
                 opts = {
                         margin = 5,
                 },
-
-        }
+        },
 }
-
 
 --PLUG:
 M[#M + 1] = {
@@ -55,47 +46,53 @@ M[#M + 1] = {
                         buftypes = {
                                 "terminal",
                                 "nofile",
-                        }
-                }
+                        },
+                },
         },
         event = "VeryLazy",
-
-}
-
-
---PLUG:
-M[#M + 1] = {
-        'projekt0n/github-nvim-theme',
-        opts = {},
-        config = function()
-                vim.cmd.colorscheme "github_light"
-                -- vim.cmd.colorscheme "github_dark"
-        end,
-        dependencies = {
-                "lunacookies/vim-colors-xcode",
-        }
 }
 
 M[#M + 1] = {
         "rebelot/heirline.nvim",
         dependencies = {
-                'neovim/nvim-lspconfig',
-                'mfussenegger/nvim-dap',
-                "rcarriga/nvim-dap-ui",
+                "nvim-tree/nvim-web-devicons",
+                "neovim/nvim-lspconfig",
         },
-        opts = require("utils.statusline")
+        opts = require("utils.heirline"),
 }
-
 
 M[#M + 1] = {
-        'NvChad/nvim-colorizer.lua',
-
+        "NvChad/nvim-colorizer.lua",
         opts = {
                 user_default_options = {
-                        RGB = true,
-                        RRGGBB = true,
+                        RGB = false,
                         names = false,
-                }
-        }
+                        RRGGBB = true,
+                },
+        },
+        -- lazy = true
 }
+
+--PLUG:
+M[#M + 1] = {
+        "projekt0n/github-nvim-theme",
+        priority = 1000,
+        config = function()
+                require("github-theme").setup({
+                        groups = {
+                                all = {
+                                        TabLineSel = { fg = "palette.red", bg = "bg", bold = true },
+                                        BlinkCmpKind = { link = "KeyWord" },
+                                },
+                        },
+                })
+                vim.cmd.colorscheme("github_light")
+                -- vim.cmd.colorscheme "github_dark"
+        end,
+}
+
+M[#M + 1] = {
+        "lunacookies/vim-colors-xcode",
+}
+
 return M

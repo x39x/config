@@ -3,23 +3,29 @@ local opts = {}
 local T = require("utils.telescope")
 
 opts.entry_maker = function(item)
-        local trimmed = string.gsub(item, '^%s*(.-)%s*$', '%1')
-        local item_path = string.gsub(trimmed, '^[^%s]* (.*)$', '%1')
-        local score = tonumber(string.gsub(trimmed, '^([^%s]*) .*$', '%1'), 10)
+        local trimmed = string.gsub(item, "^%s*(.-)%s*$", "%1")
+        local item_path = string.gsub(trimmed, "^[^%s]* (.*)$", "%1")
+        local score = tonumber(string.gsub(trimmed, "^([^%s]*) .*$", "%1"), 10)
 
         return {
                 value = item_path,
                 ordinal = item_path,
                 display = item_path,
                 z_score = score,
-                path = item_path
+                path = item_path,
         }
 end
 opts.cmd = "zoxide query -ls"
 opts.default_mappings = {
         action = function(selection)
-                vim.notify(selection.path)
-                vim.cmd.cd(selection.path)
+                vim.schedule(function()
+                        if vim.fn.isdirectory(selection.path) == 1 then
+                                vim.cmd.cd(selection.path)
+                                vim.notify(selection.path, vim.log.levels.INFO)
+                        else
+                                vim.notify(selection.path .. " ERROR", vim.log.levels.WARN)
+                        end
+                end)
         end,
 }
 opts.extra_mappings = {
@@ -27,12 +33,19 @@ opts.extra_mappings = {
                 keepinsert = true,
                 action = function(selection)
                         require("telescope.builtin").find_files({ cwd = selection.path })
-                end
+                end,
         },
         ["<C-t>"] = {
                 action = function(selection)
-                        vim.cmd.lcd(selection.path)
-                end
+                        vim.schedule(function()
+                                if vim.fn.isdirectory(selection.path) == 1 then
+                                        vim.cmd.lcd(selection.path)
+                                        vim.notify(selection.path, vim.log.levels.INFO)
+                                else
+                                        vim.notify(selection.path .. " ERROR", vim.log.levels.WARN)
+                                end
+                        end)
+                end,
         },
 }
 
