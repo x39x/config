@@ -20,9 +20,8 @@ M[#M + 1] = {
                                 },
                         },
                 },
-                files = {
-                        previewer = false,
-                },
+                files = { previewer = false },
+                oldfiles = { previewer = false },
         },
         event = "VeryLazy",
 }
