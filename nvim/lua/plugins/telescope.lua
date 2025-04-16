@@ -8,6 +8,7 @@ M.dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons",
         "nvim-telescope/telescope-ui-select.nvim",
+        "nvim-telescope/telescope-live-grep-args.nvim",
         {
                 "nvim-telescope/telescope-fzf-native.nvim",
                 build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
@@ -126,12 +127,16 @@ M.config = function()
                                 override_file_sorter = true,
                         },
                         ["ui-select"] = {
-                                require("telescope.themes").get_dropdown(theme.single_dropdown({})),
+                                require("telescope.themes").get_dropdown(theme.single_dropdown()),
+                        },
+                        live_grep_args = {
+                                theme = require("telescope.themes").get_ivy(theme.simple_ivy()),
                         },
                 },
         })
         telescope.load_extension("fzf")
         telescope.load_extension("ui-select")
+        telescope.load_extension("live_grep_args")
 end
 
 return M
