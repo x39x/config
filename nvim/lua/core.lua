@@ -128,7 +128,7 @@ require("lazy").setup({
                 border = "single",
         },
         install = {
-                colorscheme = { "github_light" },
+                colorscheme = { "39light" },
         },
         performance = {
                 rtp = {
@@ -209,7 +209,7 @@ keymap("n", "<leader>n", require("nvim-tree.api").tree.open, key_opts)
 keymap("n", "<Leader>fm", require("telescope.builtin").marks, key_opts)
 keymap("n", "<leader>fr", require("telescope.builtin").builtin, key_opts)
 keymap("n", "<leader>fh", require("telescope.builtin").oldfiles, key_opts)
-keymap("n", "<leader>fl", require("telescope.builtin").live_grep, key_opts)
+keymap("n", "<leader>fl", require("telescope").extensions.live_grep_args.live_grep_args, key_opts)
 keymap("n", "<leader>ff", require("telescope.builtin").find_files, key_opts)
 keymap("n", "<Leader>fs", require("telescope.builtin").colorscheme, key_opts)
 keymap("n", "<leader>fp", require("39.zoxide").zoxide, key_opts)

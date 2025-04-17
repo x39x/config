@@ -1,7 +1,7 @@
 return function()
         local utils = require("heirline.utils")
-        local tabline = require("39.heirline.tabline")
-        local statusline = require("39.heirline.statusline")
+        local tabline = require("39.39line.tabline")
+        local statusline = require("39.39line.statusline")
 
         local function setup_colors()
                 return {
@@ -16,9 +16,9 @@ return function()
                         heirline_git_removed = utils.get_highlight("diffRemoved").fg or "",
                         heirline_git_modified = utils.get_highlight("diffChanged").fg or "",
 
-                        heirline_filename = utils.get_highlight("Function").fg or "",
-                        heirline_workdir = utils.get_highlight("Function").fg or "",
-                        heirline_buftype = utils.get_highlight("Function").fg or "",
+                        heirline_filename = utils.get_highlight("Keyword").fg or "",
+                        heirline_workdir = utils.get_highlight("Keyword").fg or "",
+                        heirline_buftype = utils.get_highlight("Keyword").fg or "",
                 }
         end
         require("heirline").load_colors(setup_colors)

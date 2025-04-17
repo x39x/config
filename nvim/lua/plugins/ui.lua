@@ -13,7 +13,7 @@ M[#M + 1] = {
                                 val = require("39.header").a,
                                 opts = {
                                         position = "center",
-                                        hl = "KeyWord",
+                                        hl = "AlphaHeader",
                                 },
                         },
                 },
@@ -58,7 +58,7 @@ M[#M + 1] = {
                 "nvim-tree/nvim-web-devicons",
                 "neovim/nvim-lspconfig",
         },
-        opts = require("39.heirline"),
+        opts = require("39.39line"),
 }
 
 M[#M + 1] = {
@@ -76,23 +76,33 @@ M[#M + 1] = {
 --PLUG:
 M[#M + 1] = {
         "projekt0n/github-nvim-theme",
-        priority = 1000,
-        config = function()
-                require("github-theme").setup({
-                        groups = {
-                                all = {
-                                        TabLineSel = { fg = "palette.red", bg = "bg", bold = true },
-                                        BlinkCmpKind = { link = "KeyWord" },
-                                },
+        main = "github-theme",
+        opts = {
+                groups = {
+                        all = {
+                                TabLineSel = { fg = "palette.red", bg = "bg", bold = true },
+                                BlinkCmpKind = { link = "KeyWord" },
                         },
-                })
-                vim.cmd.colorscheme("github_light")
-                -- vim.cmd.colorscheme "github_dark"
-        end,
+                },
+        },
+        lazy = true,
 }
 
 M[#M + 1] = {
         "lunacookies/vim-colors-xcode",
+        lazy = true,
+}
+
+M[#M + 1] = {
+        "x39x/39light.nvim",
+        priority = 1000,
+        config = function()
+                vim.cmd.colorscheme("39light")
+                -- vim.cmd.colorscheme("min-dark")
+        end,
+        dependencies = {
+                "wesleimp/min-theme.nvim",
+        },
 }
 
 return M
