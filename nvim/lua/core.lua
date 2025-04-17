@@ -224,6 +224,7 @@ keymap("c", "<C-p>", "<Up>")
 keymap("c", "<C-n>", "<Down>")
 keymap("c", "<C-f>", "<Right>")
 keymap("c", "<C-b>", "<Left>")
+keymap("c", "<C-a>", "<Home>")
 
 --NOTE: user command
 cmd("FormatJSON", "%!python3 -m json.tool", {})
