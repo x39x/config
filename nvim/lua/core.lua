@@ -128,7 +128,7 @@ require("lazy").setup({
                 border = "single",
         },
         install = {
-                colorscheme = { "github_light" },
+                colorscheme = { "39light" },
         },
         performance = {
                 rtp = {
