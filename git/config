@@ -19,6 +19,6 @@ colorMoved = default
 # git log -p --ext-diff
 # git show --ext-diff
 
-#WARN: storing authentication information (recommended to use cache)
+#WARN: storing authentication information (recommended to use cache,no store)
 [credential]
-helper = store
+helper = cache

@@ -56,6 +56,9 @@ M.opts = {
         keymap = {
                 ["<C-space>"] = {},
                 ["<CR>"] = { "accept", "fallback" },
+                ["<C-l>"] = { "accept", "fallback" },
+                ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+                ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
                 ["<C-y>"] = { "show", "show_documentation", "hide_documentation" },
         },
 }
