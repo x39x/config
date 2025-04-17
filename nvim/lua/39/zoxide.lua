@@ -1,7 +1,9 @@
 local M = {}
 local opts = {}
-local T = require("39.telescope_tools")
+local make_picker = require("39.telescope_tools").custom_picker
 
+opts.title = "Zoxide"
+opts.cmd = "zoxide query -ls"
 opts.entry_maker = function(item)
         local trimmed = string.gsub(item, "^%s*(.-)%s*$", "%1")
         local item_path = string.gsub(trimmed, "^[^%s]* (.*)$", "%1")
@@ -15,7 +17,7 @@ opts.entry_maker = function(item)
                 path = item_path,
         }
 end
-opts.cmd = "zoxide query -ls"
+
 opts.default_mappings = {
         action = function(selection)
                 vim.schedule(function()
@@ -29,7 +31,7 @@ opts.default_mappings = {
         end,
 }
 opts.extra_mappings = {
-        ["<C-f>"] = {
+        ["<C-o>"] = {
                 keepinsert = true,
                 action = function(selection)
                         require("telescope.builtin").find_files({ cwd = selection.path })
@@ -50,6 +52,6 @@ opts.extra_mappings = {
 }
 
 M.zoxide = function()
-        T.custom_picker(opts)
+        make_picker(opts)
 end
 return M

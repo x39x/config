@@ -1,17 +1,5 @@
 local M = {}
 
-local create_mapping = function(prompt_bufnr, mapping_config)
-        local actions = require("telescope.actions")
-        local action_state = require("telescope.actions.state")
-        return function()
-                local selection = action_state.get_selected_entry()
-
-                -- if need keep insert mode
-                actions._close(prompt_bufnr, mapping_config.keepinsert or false)
-                mapping_config.action(selection)
-        end
-end
-
 M.picker_theme = {
         single_dropdown = function(opts)
                 opts = opts or {}
@@ -41,8 +29,19 @@ M.picker_theme = {
                 return opts
         end,
 }
+-- NOTE:  Custom Pickers
+local create_mapping = function(prompt_bufnr, mapping_config)
+        local actions = require("telescope.actions")
+        local action_state = require("telescope.actions.state")
+        return function()
+                local selection = action_state.get_selected_entry()
 
--- NOTE:  Zoxide Fun
+                -- if need keep insert mode
+                actions._close(prompt_bufnr, mapping_config.keepinsert or false)
+                mapping_config.action(selection)
+        end
+end
+
 function M.custom_picker(opts)
         -- require
         local pickers = require("telescope.pickers")
@@ -74,6 +73,14 @@ function M.custom_picker(opts)
                         return true
                 end,
         }):find()
+end
+
+M.move_left = function()
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Left>", true, false, true), "n", false)
+end
+
+M.move_right = function()
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Right>", true, false, true), "n", false)
 end
 
 return M

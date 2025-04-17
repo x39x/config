@@ -1,3 +1,4 @@
+local tools = require("39.telescope_tools")
 local theme = require("39.telescope_tools").picker_theme
 
 local M = {
@@ -61,6 +62,8 @@ M.config = function()
                         mappings = {
                                 i = {
                                         ["<C-c>"] = actions.close,
+                                        ["<C-b>"] = tools.move_left,
+                                        ["<C-f>"] = tools.move_right,
                                 },
                                 n = {
                                         ["<C-c>"] = actions.close,

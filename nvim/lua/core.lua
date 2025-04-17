@@ -219,6 +219,11 @@ keymap({ "n" }, "tx", require("39.M").trouble.close, key_opts)
 keymap({ "n" }, "tj", require("39.M").trouble.next, key_opts)
 keymap({ "n" }, "tk", require("39.M").trouble.prev, key_opts)
 keymap("t", "<C-\\>", "<C-\\><C-N>", key_opts)
+-- cmd mode
+keymap("c", "<C-p>", "<Up>")
+keymap("c", "<C-n>", "<Down>")
+keymap("c", "<C-f>", "<Right>")
+keymap("c", "<C-b>", "<Left>")
 
 --NOTE: user command
 cmd("FormatJSON", "%!python3 -m json.tool", {})
