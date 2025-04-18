@@ -1,0 +1,17 @@
+{
+    "root_dir_cmake": {
+        "prefix": "iff",
+        "body": [
+            "if err != nil {",
+            "\t$1",
+            "}"
+        ],
+        "description": "go err",
+        "luasnip": {
+            "priority": 2000,
+            "autotrigger": true,
+            "wordTrig": false
+        }
+
+    }
+}

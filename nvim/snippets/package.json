@@ -20,6 +20,10 @@
             {
                 "language": "make",
                 "path": "./make.json"
+            },
+            {
+                "language": "go",
+                "path": "./go.json"
             }
         ]
     }
