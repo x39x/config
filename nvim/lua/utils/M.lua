@@ -22,17 +22,6 @@ M.run = function()
 end
 
 --FUNC:
-M.rename = function()
-        local current_word = vim.fn.expand("<cword>")
-        local prompt = "New name for '" .. current_word .. "': "
-        vim.ui.input({ prompt = prompt, default = "" }, function(new_name)
-                if new_name and new_name ~= "" and new_name ~= current_word then
-                        vim.lsp.buf.rename(new_name)
-                end
-        end)
-end
-
---FUNC:
 M.BufferPwd = function()
         print(vim.fn.expand("%:p"))
 end

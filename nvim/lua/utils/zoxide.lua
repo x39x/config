@@ -1,6 +1,6 @@
 local M = {}
 local opts = {}
-local make_picker = require("39.telescope_tools").custom_picker
+local make_picker = require("utils.telescope_tools").custom_picker
 
 opts.title = "Zoxide"
 opts.cmd = "zoxide query -ls"

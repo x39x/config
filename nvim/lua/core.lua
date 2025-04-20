@@ -184,7 +184,7 @@ keymap("", "J", "2j", key_opts)
 keymap("", ";;", "%", key_opts)
 keymap("", ";z", "J", key_opts)
 keymap("n", ";k", "<cmd>nohl<CR>", key_opts)
-keymap("n", ";j", require("39.M").highlightCword, key_opts)
+keymap("n", ";j", require("utils.M").highlightCword, key_opts)
 --buffers
 keymap({ "n" }, "<leader>l", "<cmd>bn<cr>", key_opts)
 keymap({ "n" }, "<leader>h", "<cmd>bp<cr>", key_opts)
@@ -212,12 +212,12 @@ keymap("n", "<leader>fh", require("telescope.builtin").oldfiles, key_opts)
 keymap("n", "<leader>fl", require("telescope").extensions.live_grep_args.live_grep_args, key_opts)
 keymap("n", "<leader>ff", require("telescope.builtin").find_files, key_opts)
 keymap("n", "<Leader>fs", require("telescope.builtin").colorscheme, key_opts)
-keymap("n", "<leader>fp", require("39.zoxide").zoxide, key_opts)
+keymap("n", "<leader>fp", require("utils.zoxide").zoxide, key_opts)
 keymap("n", "<leader>fw", require("telescope.builtin").current_buffer_fuzzy_find, key_opts)
-keymap({ "n" }, "<leader>m", require("39.M").run, key_opts)
-keymap({ "n" }, "tx", require("39.M").trouble.close, key_opts)
-keymap({ "n" }, "tj", require("39.M").trouble.next, key_opts)
-keymap({ "n" }, "tk", require("39.M").trouble.prev, key_opts)
+keymap({ "n" }, "<leader>m", require("utils.M").run, key_opts)
+keymap({ "n" }, "tx", require("utils.M").trouble.close, key_opts)
+keymap({ "n" }, "tj", require("utils.M").trouble.next, key_opts)
+keymap({ "n" }, "tk", require("utils.M").trouble.prev, key_opts)
 keymap("t", "<C-\\>", "<C-\\><C-N>", key_opts)
 -- cmd mode
 keymap("c", "<C-p>", "<Up>")
@@ -228,8 +228,8 @@ keymap("c", "<C-a>", "<Home>")
 
 --NOTE: user command
 cmd("FormatJSON", "%!python3 -m json.tool", {})
-cmd("Bpwd", require("39.M").BufferPwd, {})
-cmd("CBpwd", require("39.M").cdBufferPwd, {})
+cmd("Bpwd", require("utils.M").BufferPwd, {})
+cmd("CBpwd", require("utils.M").cdBufferPwd, {})
 
 --NOTE: autocmd
 autocmd("BufWritePre", {
@@ -242,7 +242,7 @@ autocmd("BufWritePre", {
 
 autocmd({ "BufReadPost" }, {
         callback = function()
-                require("39.lastplace").set_cursor_position()
+                require("utils.lastplace").set_cursor_position()
         end,
         group = vim.api.nvim_create_augroup("LASTPLACE", { clear = true }),
 })

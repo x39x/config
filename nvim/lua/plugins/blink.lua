@@ -1,7 +1,6 @@
 local M = {
         "saghen/blink.cmp",
         version = "*",
-        event = "VeryLazy",
 }
 
 local cmp_border = { " ", " ", " ", " ", " ", " ", " ", " " }
@@ -62,4 +61,5 @@ M.opts = {
                 ["<C-y>"] = { "show", "show_documentation", "hide_documentation" },
         },
 }
+
 return M
