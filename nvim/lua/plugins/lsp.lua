@@ -28,6 +28,7 @@ M[#M + 1] = {
         end,
         dependencies = {
                 "saghen/blink.cmp",
+                "nvimtools/none-ls.nvim",
         },
 }
 

@@ -22,7 +22,7 @@ M[#M + 1] = {
         event = "VeryLazy",
 }
 
--- PLUG: ts-comments
+-- -- PLUG: ts-comments
 M[#M + 1] = {
         "folke/ts-comments.nvim",
         config = true,

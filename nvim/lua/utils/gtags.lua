@@ -1,4 +1,5 @@
-local function goto_definition()
+local M
+M.goto_definition = function()
         local word = vim.fn.expand("<cword>")
         local cmd = "global -ax " .. word
         local output = vim.fn.systemlist(cmd)
@@ -26,7 +27,7 @@ local function goto_definition()
         end
 end
 
-local function goto_references()
+M.goto_references = function()
         local word = vim.fn.expand("<cword>") -- 获取光标下的单词
         local cmd = "global -axr " .. word
         local output = vim.fn.systemlist(cmd)
