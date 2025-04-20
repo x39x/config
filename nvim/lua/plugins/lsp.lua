@@ -2,7 +2,7 @@ local M = {}
 local lsp_keymaps = require("utils.lsp_keymaps")
 local servers = {
         "lua_ls",
-        "clangd",
+        "cd",
         "gopls",
         "pyright",
         "rust_analyzer",
@@ -16,14 +16,10 @@ M[#M + 1] = {
         "neovim/nvim-lspconfig",
         config = function()
                 vim.lsp.config("*", {
-                        on_attach = function(client, bufnr)
-                                if client == nil then
-                                        return
-                                end
+                        on_attach = function(_, bufnr)
                                 lsp_keymaps(bufnr)
                         end,
                 })
-
                 vim.lsp.enable(servers)
         end,
         dependencies = {
