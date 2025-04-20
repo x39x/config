@@ -24,7 +24,7 @@ if [[ -n "${RIME}" ]]; then
                 printf  "${GREEN}File '$RIME_PATH' exists.${NC}\n"
                 # check if Git dir exist
                 if [ -d "$RIME_PATH/.git" ]; then
-                        printf "${GREEN}Updating...${NC}\n"
+                        printf "${GREEN}Updating ${RIME_PATH}...${NC}\n"
                         cd "$RIME_PATH" || exit
                         git pull
                 else

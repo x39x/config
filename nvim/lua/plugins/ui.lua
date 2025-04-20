@@ -61,15 +61,9 @@ M[#M + 1] = {
 }
 
 M[#M + 1] = {
-        "NvChad/nvim-colorizer.lua",
-        opts = {
-                user_default_options = {
-                        RGB = false,
-                        names = false,
-                        RRGGBB = true,
-                },
-        },
-        cmd = "ColorizerToggle",
+        "brenoprata10/nvim-highlight-colors",
+        opts = {},
+        -- cmd = "ColorizerToggle",
 }
 
 --PLUG:
