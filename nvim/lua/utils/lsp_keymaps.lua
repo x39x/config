@@ -41,7 +41,7 @@ return function(bufnr)
         keymap("n", "<leader>;k", function()
                 vim.diagnostic.jump({ count = 1, float = true })
         end, opts)
-        vim.api.nvim_create_user_command("F", function()
+        vim.api.nvim_buf_create_user_command(0, "F", function()
                 vim.lsp.buf.format({ async = true })
         end, {})
 end

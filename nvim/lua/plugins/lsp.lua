@@ -2,45 +2,39 @@ local M = {}
 local lsp_keymaps = require("utils.lsp_keymaps")
 local servers = {
         "lua_ls",
-        "cd",
-        "gopls",
         "pyright",
-        "rust_analyzer",
-
+        "clangd",
+        "gopls",
         "ts_ls",
+        "jsonls",
+
+        -- "rust_analyzer",
         -- "tailwindcss",
         -- "racket_langserver",
 }
 
 M[#M + 1] = {
-        "neovim/nvim-lspconfig",
-        config = function()
+        "williamboman/mason.nvim",
+        opts = function()
                 vim.lsp.config("*", {
                         on_attach = function(_, bufnr)
                                 lsp_keymaps(bufnr)
                         end,
                 })
                 vim.lsp.enable(servers)
-        end,
-        dependencies = {
-                "saghen/blink.cmp",
-                "nvimtools/none-ls.nvim",
-        },
-}
-
-M[#M + 1] = {
-        "williamboman/mason.nvim",
-        opts = {
-                max_concurrent_installers = 10,
-                ui = {
-                        icons = {
-                                package_installed = "",
-                                package_pending = "",
-                                package_uninstalled = "",
+                return {
+                        max_concurrent_installers = 10,
+                        ui = {
+                                icons = {
+                                        package_installed = "",
+                                        package_pending = "",
+                                        package_uninstalled = "",
+                                },
+                                border = "single",
                         },
-                        border = "single",
-                },
-        },
+                }
+        end,
+        dependencies = "saghen/blink.cmp",
 }
 
 M[#M + 1] = {
@@ -61,6 +55,7 @@ M[#M + 1] = {
                         },
                 })
         end,
+        dependencies = "williamboman/mason.nvim",
 }
 
 return M
