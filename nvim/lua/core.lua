@@ -233,7 +233,21 @@ cmd("CBpwd", require("utils.M").cdBufferPwd, {})
 
 --NOTE: autocmd
 autocmd("BufWritePre", {
-        pattern = { "*.lua", "*.c", "*.cpp", "*.h", "*.rs", "*.go", "*.py", "*.js", "*.jsx", "*.ts", "*.tsx", "*.mjs" },
+        pattern = {
+                "*.lua",
+                "*.c",
+                "*.cpp",
+                "*.h",
+                "*.rs",
+                "*.go",
+                "*.py",
+                "*.js",
+                "*.jsx",
+                "*.ts",
+                "*.tsx",
+                "*.mjs",
+                "*.json",
+        },
         callback = function()
                 vim.lsp.buf.format({ sync = true })
         end,
@@ -267,5 +281,14 @@ autocmd({ "FileType" }, {
         group = vim.api.nvim_create_augroup("TYPST", { clear = true }),
         callback = function()
                 cmd("TypstFigures", "silent !mkdir figures", {})
+        end,
+})
+
+autocmd("FileType", {
+        pattern = { "json", "jsonc" },
+        callback = function()
+                vim.bo.shiftwidth = 4
+                vim.bo.tabstop = 4
+                vim.bo.expandtab = true
         end,
 })
