@@ -195,9 +195,10 @@ M[#M + 1] = {
         event = "VeryLazy",
 }
 
---PLUG: table
+--PLUG: table,
 M[#M + 1] = {
-        "dhruvasagar/vim-table-mode",
+        "Kicamon/markdown-table-mode.nvim",
+        opts = {},
         ft = "markdown",
 }
 
