@@ -39,12 +39,15 @@ local keys = {
 return {
         "mfussenegger/nvim-dap",
         dependencies = {
-                "theHamsta/nvim-dap-virtual-text",
-                opts = {
-                        virt_text_pos = "eol",
-                        all_frames = true,
+                "nvim-lua/plenary.nvim",
+                {
+                        "theHamsta/nvim-dap-virtual-text",
+                        opts = {
+                                virt_text_pos = "eol",
+                                all_frames = true,
+                        },
+                        lazy = true,
                 },
-                lazy = true,
         },
         config = config,
         keys = keys,
