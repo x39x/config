@@ -2,9 +2,8 @@
 [ "$(uname)" = "Darwin" -a -f "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 command -v nvim >/dev/null 2>&1 && export EDITOR="nvim"
 
-
 #NOTE: PATH
-export GOPATH="$HOME/.local/share/go"
+export GOPATH="$HOME/.local/share/golang"
 export GO111MODULE=on
 export PNPM_HOME="$HOME/.local/share/pnpm"
 
