@@ -12,23 +12,28 @@ M.dependencies = {
         config = function()
                 local luasnip = require("luasnip")
 
+                luasnip.filetype_extend("javascriptreact", { "html" })
+                luasnip.filetype_extend("typescriptreact", { "html" })
                 luasnip.config.set_config({
                         enable_autosnippets = true,
                 })
                 require("luasnip/loaders/from_vscode").lazy_load({
                         include = {
                                 "lua",
-                                "cpp",
+
                                 "c",
-                                "rust",
                                 "go",
+                                "zig",
+                                "cpp",
+                                "rust",
                                 "python",
+
+                                "css",
+                                "html",
                                 "javascript",
                                 "javascriptreact",
                                 "typescript",
                                 "typescriptreact",
-                                "css",
-                                "html",
                         },
                 })
                 require("luasnip.loaders.from_vscode").lazy_load({
