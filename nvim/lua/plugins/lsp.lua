@@ -5,11 +5,12 @@ local servers = {
         "pyright",
         "clangd",
         "gopls",
-        "ts_ls",
-        "jsonls",
 
+        "ts_ls",
+        "tailwindcss",
+
+        "jsonls",
         -- "rust_analyzer",
-        -- "tailwindcss",
         -- "racket_langserver",
 }
 
