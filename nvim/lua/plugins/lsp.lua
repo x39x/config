@@ -9,9 +9,9 @@ local servers = {
         "ts_ls",
         "tailwindcss",
 
-        "jsonls",
         -- "rust_analyzer",
         -- "racket_langserver",
+        -- "jsonls",
 }
 
 M[#M + 1] = {
@@ -38,6 +38,13 @@ M[#M + 1] = {
         dependencies = "saghen/blink.cmp",
 }
 
+local function on_attach(client, bufnr)
+        if client.name ~= "xxx" then
+                vim.api.nvim_buf_create_user_command(bufnr, "F", function()
+                        vim.lsp.buf.format({ async = true })
+                end, {})
+        end
+end
 M[#M + 1] = {
         "nvimtools/none-ls.nvim",
         config = function()
@@ -47,13 +54,16 @@ M[#M + 1] = {
                         debug = false,
                         sources = {
                                 formatting.black,
+                                -- To increase speed, try prettierd.
                                 formatting.prettier.with({
                                         extra_args = { "--tab-width", "4" },
+                                        extra_filetypes = { "json5" },
                                 }),
                                 formatting.stylua.with({
                                         extra_args = { "--indent-width", "8", "--indent-type", "Spaces" },
                                 }),
                         },
+                        on_attach = on_attach,
                 })
         end,
         dependencies = "williamboman/mason.nvim",
