@@ -49,7 +49,7 @@ return {
                 },
         },
         on_attach = function(_, bufnr)
-                vim.api.nvim_buf_create_user_command(0, "PyrightOrganizeImports", organize_imports, {
+                vim.api.nvim_buf_create_user_command(bufnr, "PyrightOrganizeImports", organize_imports, {
                         desc = "Organize Imports",
                 })
                 lsp_keymaps(bufnr)
