@@ -1,4 +1,5 @@
 local lsp_keymaps = require("utils.lsp_keymaps")
+--NOTE: https://github.com/yioneko/vtsls
 return {
         init_options = { hostInfo = "neovim" },
         cmd = { "typescript-language-server", "--stdio" },
