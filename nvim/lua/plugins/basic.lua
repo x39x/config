@@ -138,6 +138,8 @@ M[#M + 1] = {
                                 "jsonc",
                                 "json5",
                                 "vimdoc",
+                                "markdown",
+                                "markdown_inline",
 
                                 "c",
                                 "go",
