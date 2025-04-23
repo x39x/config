@@ -247,6 +247,8 @@ autocmd("BufWritePre", {
                 "*.tsx",
                 "*.mjs",
                 "*.json",
+                "*.md",
+                "*.mdx",
         },
         callback = function()
                 vim.lsp.buf.format({ sync = true })
