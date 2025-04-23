@@ -1,53 +1,77 @@
-tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-tap "homebrew/services"
-tap "v2raya/v2raya"
-
-brew "v2raya/v2raya/v2raya"
-brew "bash"
-brew "cmake"
-brew "llvm"
-brew "tmux"
-brew "neovim"
-brew "fish"
-brew "yazi"
-brew "zoxide"
-brew "eza"
-brew "fzf"
-brew "fd"
-brew "ripgrep"
+# Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-brew "tldr"
-brew "git-delta"
-brew "starship"
-brew "hugo"
-brew "typst"
-brew "node"
+# Cross-platform make
+brew "cmake"
+# Diff that understands syntax
+brew "difftastic"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# User-friendly command-line shell for UNIX-like operating systems
+brew "fish"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Open source programming language to build simple/reliable/efficient software
 brew "go"
-
-cask "font-iosevka-term-nerd-font"
-cask "visual-studio-code"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Platform built on V8 to build network applications
+brew "node@22", link: true
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Rust toolchain installer
+brew "rustup"
+# Simplified and community-driven man pages
+brew "tldr"
+# Terminal multiplexer
+brew "tmux"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Markup-based typesetting system
+brew "typst"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# GPU-accelerated terminal emulator
 cask "alacritty"
-cask "wezterm"
-cask "hammerspoon"
-cask "raycast"
-cask "karabiner-elements"
-cask "keycastr"
+# Chromium based browser
 cask "arc"
-cask "iina"
-cask "skim"
-cask "maczip"
-cask "the-unarchiver"
-
-cask "yesplaymusic"
-cask "tencent-meeting"
-cask "wechat"
+# OpenAI's official ChatGPT desktop app
+cask "chatgpt"
+# Voice and text chat software
 cask "discord"
+cask "font-iosevka-term-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Web browser
+cask "google-chrome"
+# Desktop automation application
+cask "hammerspoon"
+# Free and open-source media player
+cask "iina"
+# Keyboard customiser
+cask "karabiner-elements"
+# Open-source keystroke visualiser
+cask "keycastr"
+# Utility to open, create and modify archive files
+cask "maczip"
+# Instant messaging tool
 cask "qq"
+# Control your tools with a few keystrokes
+cask "raycast"
+# PDF reader and note-taking application
+cask "skim"
+# Video game digital distribution service
 cask "steam"
-cask "xld" #Music format
-cask "fliqlo" #screen saver
-
-vscode "hyzeta.vscde-theme-github-light"
+# Unpacks archive files
+cask "the-unarchiver"
+# Open-source code editor
+cask "visual-studio-code"
+# Free messaging and calling application
+cask "wechat"
+vscode "hyzeta.vscode-theme-github-light"
+vscode "mhutchie.git-graph"
 vscode "vscodevim.vim"
 vscode "wayou.vscode-todo-highlight"
