@@ -1,30 +1,7 @@
 local M = {}
-local application = require 'hs.application'
-local alert = require 'hs.alert'
-local timer = require 'hs.timer'
-
-local function getBundleID(appName)
-        local script = 'osascript -e \'id of app "' .. appName .. '"\''
-        local handle = io.popen(script)
-        if handle ~= nil then
-                local result = handle:read("*a")
-                handle:close()
-                return string.gsub(result, "\n", "")
-        end
-end
-
-local function notFullScreenApp(appName)
-        local appNotFullScreen = {
-                ["Preview"] = true,
-                ["WezTerm"] = true,
-                -- ["Alacritty"] = true,
-        }
-        if appNotFullScreen[appName] ~= nil then
-                return true
-        else
-                return false
-        end
-end
+local application = require("hs.application")
+local alert = require("hs.alert")
+local timer = require("hs.timer")
 
 local function sleep(appName)
         local appToSleep = {
@@ -37,11 +14,33 @@ local function sleep(appName)
         os.execute("sleep " .. appToSleep[appName])
 end
 
+local function notFullScreenApp(appName)
+        local appNotFullScreen = {
+                ["Preview"] = true,
+                ["WezTerm"] = true,
+        }
+        if appNotFullScreen[appName] ~= nil then
+                return true
+        else
+                return false
+        end
+end
+
+local function getBundleID(appName)
+        local script = "osascript -e 'id of app \"" .. appName .. "\"'"
+        local handle = io.popen(script)
+        if handle ~= nil then
+                local result = handle:read("*a")
+                handle:close()
+                return string.gsub(result, "\n", "")
+        end
+end
+
 local function launchApp(appName, appBundleID)
         local runApp = application.launchOrFocusByBundleID(appBundleID)
 
         if runApp == false then
-                alert('Failed to launch app: ' .. appName)
+                alert("Failed to launch app: " .. appName)
         elseif notFullScreenApp(appName) then
                 return
         else
@@ -93,8 +92,6 @@ local function focusApp(app, appBundleID)
                 application.launchOrFocusByBundleID(appBundleID)
         end
 end
-
-
 
 M.lanuchOrFocusApp = function(appName)
         return function()

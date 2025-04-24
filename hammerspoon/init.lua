@@ -1,21 +1,18 @@
-local hk = require "hs.hotkey"
+local hk = require("hs.hotkey")
 local lanuchOrFocusApp = require("app").lanuchOrFocusApp
-local windowManager = require('window').windowManager
-local FocusDesktop = require('app').FocusDesktop
+local windowManager = require("window").windowManager
+local FocusDesktop = require("app").FocusDesktop
 
 -- window manager
-hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "q", windowManager("fullScreen"))
-hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "m", windowManager("right"))
-hk.bind({ 'ctrl', 'cmd', 'alt', 'shift' }, "n", windowManager("left"))
-hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "p", windowManager("top"))
-hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "o", windowManager("bottom"))
+hk.bind({ "ctrl", "alt", "cmd", "shift" }, "s", windowManager("fullScreen"))
+hk.bind({ "ctrl", "cmd", "shift" }, "right", windowManager("right"))
+hk.bind({ "ctrl", "cmd", "shift" }, "left", windowManager("left"))
+hk.bind({ "ctrl", "cmd", "shift" }, "down", windowManager("bottom"))
+hk.bind({ "ctrl", "cmd", "shift" }, "up", windowManager("top"))
 
 -- lanuch or focue app
-hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "z", lanuchOrFocusApp("Preview"))
-hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "i", lanuchOrFocusApp("kitty"))
-hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "d", lanuchOrFocusApp("Alacritty"))
-hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "f", lanuchOrFocusApp("Google Chrome"))
-hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "x", lanuchOrFocusApp("Craft"))
-hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "r", FocusDesktop())
-hk.bind({ 'ctrl', 'cmd', 'shift' }, "down", lanuchOrFocusApp("Reminders"))
-hk.bind({ 'ctrl', 'cmd', 'shift' }, "up", lanuchOrFocusApp("Notes"))
+hk.bind({ "ctrl", "alt", "cmd", "shift" }, "f", lanuchOrFocusApp("Safari"))
+hk.bind({ "ctrl", "alt", "cmd", "shift" }, "d", lanuchOrFocusApp("Alacritty"))
+hk.bind({ "ctrl", "alt", "cmd", "shift" }, "x", lanuchOrFocusApp("Craft"))
+hk.bind({ "ctrl", "alt", "cmd", "shift" }, "z", lanuchOrFocusApp("Preview"))
+hk.bind({ "ctrl", "alt", "cmd", "shift" }, "r", FocusDesktop())
