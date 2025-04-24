@@ -1,4 +1,4 @@
-general.import = ["~/.config/alacritty/themes/github_light.toml"]
+general.import = ["~/.config/alacritty/themes/github_dark.toml"]
 
 [env]
 TERM_PROGRAM = "alacritty"
@@ -11,7 +11,7 @@ padding = { x = 0, y = 0 }
 position = { x = 650, y = 250 }
 
 [font]
-size = 16
+size = 15
 normal = { family = "IosevkaTerm Nerd Font Mono", style = "Regular" }
 italic = { style = "Italic" }
 bold = { style = "Bold" }

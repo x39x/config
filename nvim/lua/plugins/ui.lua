@@ -91,12 +91,9 @@ M[#M + 1] = {
         dir = "~/Dev/project/39light.nvim/",
         priority = 1000,
         config = function()
-                vim.cmd.colorscheme("39light")
-                -- vim.cmd.colorscheme("min-dark")
+                -- vim.cmd.colorscheme("39light")
+                vim.cmd.colorscheme("39dark")
         end,
-        dependencies = {
-                "wesleimp/min-theme.nvim",
-        },
 }
 
 return M
