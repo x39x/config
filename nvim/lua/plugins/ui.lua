@@ -87,8 +87,8 @@ M[#M + 1] = {
 }
 
 M[#M + 1] = {
-        "x39x/39light.nvim",
-        --dir = "~/Dev/project/39light.nvim/",
+        -- "x39x/39light.nvim",
+        dir = "~/Dev/project/39light.nvim/",
         priority = 1000,
         config = function()
                 vim.cmd.colorscheme("39light")
