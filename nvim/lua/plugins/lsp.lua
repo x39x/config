@@ -1,15 +1,17 @@
 local M = {}
 local lsp_keymaps = require("utils.lsp_keymaps")
 local servers = {
-        "lua_ls",
-        "pyright",
-        "clangd",
         "gopls",
+        "lua_ls",
+        "clangd",
+        "rust_analyzer",
+
+        "ruff",
+        "pyright",
 
         "ts_ls",
         "tailwindcss",
 
-        -- "rust_analyzer",
         -- "racket_langserver",
         -- "jsonls",
 }
@@ -53,11 +55,10 @@ M[#M + 1] = {
                 null_ls.setup({
                         debug = false,
                         sources = {
-                                formatting.black,
                                 -- To increase speed, try prettierd.
                                 formatting.prettier.with({
                                         extra_args = { "--tab-width", "4" },
-                                        extra_filetypes = { "json5" },
+                                        extra_filetypes = { "json5", "toml" },
                                 }),
                                 formatting.stylua.with({
                                         extra_args = { "--indent-width", "8", "--indent-type", "Spaces" },

@@ -1,20 +1,5 @@
 local lsp_keymaps = require("utils.lsp_keymaps")
 
-local function organize_imports()
-        local params = {
-                command = "pyright.organizeimports",
-                arguments = { vim.uri_from_bufnr(0) },
-        }
-
-        local clients = vim.lsp.get_clients({
-                bufnr = vim.api.nvim_get_current_buf(),
-                name = "pyright",
-        })
-        for _, client in ipairs(clients) do
-                client:request("workspace/executeCommand", params, nil, 0)
-        end
-end
-
 --NOTE: https://github.com/neovim/nvim-lspconfig/issues/500#issuecomment-876700701
 local function get_python_path()
         local python_path
@@ -44,14 +29,17 @@ return {
         settings = {
                 python = {
                         analysis = {
-                                typeCheckingMode = "off",
+                                -- Ignore all files for analysis to exclusively use Ruff for linting
+                                ignore = { "*" },
+                                -- typeCheckingMode = "off",
                         },
+                },
+                pyright = {
+                        -- Using Ruff's import organizer
+                        disableOrganizeImports = true,
                 },
         },
         on_attach = function(_, bufnr)
-                vim.api.nvim_buf_create_user_command(bufnr, "PyrightOrganizeImports", organize_imports, {
-                        desc = "Organize Imports",
-                })
                 lsp_keymaps(bufnr)
         end,
 }
