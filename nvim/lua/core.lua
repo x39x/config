@@ -175,7 +175,12 @@ require("lazy").setup({
 -- operator_mode     = "o",
 -- select_mode       = "s"
 
-keymap({ "i" }, "jk", "<esc>", key_opts)
+keymap({ "i", "n", "x" }, "<M-s>", function()
+        vim.cmd("stopinsert")
+        vim.cmd("w")
+end, key_opts)
+
+keymap("i", "jk", "<esc>", key_opts)
 keymap({ "n", "o" }, "L", "$", key_opts)
 keymap({ "x" }, "L", "$h", key_opts)
 keymap("", "H", "^", key_opts)
@@ -234,21 +239,26 @@ cmd("CBpwd", require("utils.M").cdBufferPwd, {})
 --NOTE: autocmd
 autocmd("BufWritePre", {
         pattern = {
-                "*.lua",
                 "*.c",
-                "*.cpp",
                 "*.h",
+                "*.hh",
+                "*.cpp",
                 "*.rs",
                 "*.go",
+                "*.lua",
                 "*.py",
+
                 "*.js",
                 "*.jsx",
                 "*.ts",
                 "*.tsx",
                 "*.mjs",
-                "*.json",
+
                 "*.md",
                 "*.mdx",
+                "*.json",
+                "*.toml",
+                "*.yaml",
         },
         callback = function()
                 vim.lsp.buf.format({ sync = true })
