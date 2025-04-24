@@ -1,8 +1,8 @@
 local M = {}
 local lsp_keymaps = require("utils.lsp_keymaps")
 local servers = {
-        "gopls",
         "lua_ls",
+        "gopls",
         "clangd",
         "rust_analyzer",
 
@@ -40,13 +40,6 @@ M[#M + 1] = {
         dependencies = "saghen/blink.cmp",
 }
 
-local function on_attach(client, bufnr)
-        if client.name ~= "xxx" then
-                vim.api.nvim_buf_create_user_command(bufnr, "F", function()
-                        vim.lsp.buf.format({ async = true })
-                end, {})
-        end
-end
 M[#M + 1] = {
         "nvimtools/none-ls.nvim",
         config = function()
@@ -64,7 +57,11 @@ M[#M + 1] = {
                                         extra_args = { "--indent-width", "8", "--indent-type", "Spaces" },
                                 }),
                         },
-                        on_attach = on_attach,
+                        on_attach = function(_, bufnr)
+                                vim.api.nvim_buf_create_user_command(bufnr, "F", function()
+                                        vim.lsp.buf.format({ async = true })
+                                end, {})
+                        end,
                 })
         end,
         dependencies = "williamboman/mason.nvim",
