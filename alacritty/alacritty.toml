@@ -4,18 +4,18 @@ general.import = ["~/.config/alacritty/themes/github_light.toml"]
 TERM_PROGRAM = "alacritty"
 
 [window]
-decorations = "buttonless"
-dynamic_padding = true
 option_as_alt = "Both"
+decorations = "Buttonless"
+dynamic_padding = true
 padding = { x = 0, y = 0 }
 position = { x = 650, y = 250 }
 
 [font]
 size = 15
 normal = { family = "IosevkaTerm Nerd Font Mono", style = "Regular" }
+bold_italic = { style = "Bold Italic" }
 italic = { style = "Italic" }
 bold = { style = "Bold" }
-bold_italic = { style = "Bold Italic" }
 offset = { x = 0, y = 7 }
 
 [keyboard]
