@@ -6,14 +6,14 @@ local colors = {
         bg0 = "#000000",
         miku = "#ACB5DE",
         fg = "#888888",
-        bg = "#1f1f1f",
+        bg = "#1E1E1E",
         bg_alt = "#1A1A1A",
         bg_highlight = "#292929",
         bg_visual = "#212121",
-        accent = "#b392f0",
+        blue = "#b392f0",
         orange = "#FF9800",
         pink = "#FF7A84",
-        blue = "#79b8ff",
+        accent = "#79b8ff",
         yellow = "#ffab70",
         green = "#9db1c5",
         red = "#cd3131",
@@ -51,8 +51,10 @@ local colors = {
         git_ignored = "#444444",
 
         --NOTE: none
-        search1 = "#FCE094",
-        search2 = "#63341D",
+        -- search1 = "#FCE094",
+        -- search2 = "#63341D",
+        -- accent = "#b392f0",
+        --      bg = "#1f1f1f",
 }
 
 local function m39k()
