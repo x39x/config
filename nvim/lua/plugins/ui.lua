@@ -7,7 +7,7 @@ M[#M + 1] = {
                 layout = {
 
                         --val c:2 a:9
-                        { type = "padding", val = 8 },
+                        { type = "padding", val = 7 },
                         {
                                 type = "text",
                                 val = require("utils.header").a,
@@ -63,7 +63,6 @@ M[#M + 1] = {
 M[#M + 1] = {
         "brenoprata10/nvim-highlight-colors",
         opts = {},
-        -- cmd = "ColorizerToggle",
 }
 
 --PLUG:
@@ -91,8 +90,8 @@ M[#M + 1] = {
         dir = "~/Dev/project/39light.nvim/",
         priority = 1000,
         config = function()
-                -- vim.cmd.colorscheme("39light")
-                vim.cmd.colorscheme("39dark")
+                vim.cmd.colorscheme("39light")
+                -- vim.cmd.colorscheme("39dark")
         end,
 }
 
