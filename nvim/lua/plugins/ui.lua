@@ -5,7 +5,6 @@ M[#M + 1] = {
         "goolord/alpha-nvim",
         opts = {
                 layout = {
-
                         --val c:2 a:9
                         { type = "padding", val = 7 },
                         {
@@ -74,6 +73,7 @@ M[#M + 1] = {
                         all = {
                                 TabLineSel = { fg = "palette.red", bg = "bg", bold = true },
                                 BlinkCmpKind = { link = "KeyWord" },
+                                AlphaHeader = { fg = "#39C5BB" },
                         },
                 },
         },
@@ -83,16 +83,6 @@ M[#M + 1] = {
 M[#M + 1] = {
         "lunacookies/vim-colors-xcode",
         lazy = true,
-}
-
-M[#M + 1] = {
-        -- "x39x/39color.nvim",
-        dir = "~/Dev/project/39color.nvim",
-        priority = 1000,
-        config = function()
-                vim.cmd.colorscheme("39light")
-                -- vim.cmd.colorscheme("39dark")
-        end,
 }
 
 return M
