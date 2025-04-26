@@ -11,6 +11,8 @@ return {
                 "selene.yml",
                 ".git",
         },
+        -- client.server_capabilities.semanticTokensProvider = nil
+
         settings = {
                 Lua = {
                         diagnostics = {
@@ -29,6 +31,9 @@ return {
                         },
                         format = {
                                 enable = false,
+                        },
+                        semantic = {
+                                variable = false,
                         },
                 },
         },
