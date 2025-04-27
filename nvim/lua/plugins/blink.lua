@@ -52,6 +52,7 @@ M.opts = {
         },
 
         completion = {
+                keyword = { range = "prefix" },
                 menu = {
                         border = cmp_border,
                         scrollbar = false,
