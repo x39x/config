@@ -33,6 +33,7 @@ local colors = {
         visual_bule = "#264F78",
         green1 = "#0FBC7A",
         greenaaa = "#9db1c5",
+        search2 = "#63341D",
 
         red0 = "#f50000",
         red = "#cd3131",
@@ -59,7 +60,6 @@ local colors = {
         git_ignored = "#444444",
 
         --NOTE: none
-        -- search2 = "#63341D",
         -- seaaa = "#515C6A",
         -- ruler = "#2A2A2A",
         --  min dakr diff remove bg #691B24 difffff = "#611B27",
@@ -96,10 +96,10 @@ local function m39k()
         hl("TabLineSel", { fg = colors.light_gray, bg = colors.bg1 })
         hl("Visual", { bg = colors.visual_bule })
         hl("VisualNOS", { bg = colors.red })
-        hl("Search", { bg = colors.search1, fg = colors.bg0 })
+        hl("Search", { bg = colors.search2, fg = colors.bg0 })
         hl("CurSearch", { bg = colors.green1, fg = colors.bg0 })
         hl("IncSearch", { bg = colors.red0, fg = colors.bg0 })
-        hl("MatchParen", { bg = colors.visual_bule, bold = true })
+        hl("MatchParen", { bg = colors.search1, fg = colors.bg0 })
         hl("Directory", { fg = colors.purple0 })
         hl("Folded", { fg = colors.gray, bg = colors.bg3 })
         hl("FoldColumn", { fg = colors.gray, bg = colors.bg1 })
