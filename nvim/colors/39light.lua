@@ -20,7 +20,6 @@ local colors = {
         bg3 = "#EBECF0",
         bg4 = "#D6D6D6",
         bg5 = "#D5E1FF",
-        bg6 = "#C2D8F3",
 
         fg1 = "#AEB3C2",
         fg2 = "#8C8C8C",
@@ -32,7 +31,9 @@ local colors = {
         green3 = "#BEE6BE",
         green4 = "#E9F5E6",
 
+        red7=  "#C33720",
         red0 = "#f50000",
+        red6 = "#F40A3F",
         red1 = "#DC2626",
         red2 = "#CE0606",
         red3 = "#D3353F",
@@ -43,11 +44,14 @@ local colors = {
         blue1 = "#0137A6",
         blue2 = "#0133B3",
         blue3 = "#264eff",
+        blue9 = "#0E54D6", -- NO
         blue7 = "#174be6",
         blue4 = "#1750EB",
         blue5 = "#0A69DA",
+        blueB = "#8cb1de",
         blue6 = "#A6D2FF",
         blue8 = "#B4D7FF",
+        blueA = "#C2D8F3",
 
         orange = "#b86114",
 
@@ -61,7 +65,6 @@ local colors = {
         yellow3 = "#FEE6B1",
         yellow4 = "#F7E6A0",
 
-        -- red        = "#F40A3F"
         -- ___keywrd4 = "#800000",
         -- ___variabl = "#7f0000",
         -- ___keyword = "#3333bb",
@@ -124,7 +127,7 @@ local function m39k()
         hl("Operator", { fg = colors.fg0 })
         hl("Comment", { fg = colors.fg2, italic = false })
         hl("Function", { fg = colors.cyan0 })
-        hl("Keyword", { fg = colors.blue2 })
+        hl("Keyword", { fg = colors.blue2,bold=true })
         hl("String", { fg = colors.green2 })
         hl("Number", { fg = colors.blue4 })
         hl("PreProc", { fg = colors.blue3 })
@@ -162,9 +165,9 @@ local function m39k()
         hl("DiagnosticUnderlineWarn", { undercurl = true, sp = colors.yellow1 })
         hl("DiagnosticUnderlineInfo", { undercurl = true, sp = colors.blue5 })
         hl("DiagnosticUnderlineHint", { undercurl = true, sp = colors.green0 })
-        hl("DiffChange", { bg = colors.bg6 })
+        hl("DiffChange", { bg = colors.blueA })
         hl("DiffAdd", { bg = colors.green3, fg = colors.green1 })
-        hl("DiffText", { bg = colors.red5, fg = colors.red3 })
+        hl("DiffText", {  bg=colors.blueB,fg=colors.red4})
         hl("DiffDelete", { bg = colors.bg4, fg = colors.fg2 })
         hl("diffAdded", { fg = colors.green2 })
         hl("diffRemoved", { fg = colors.red2 })
