@@ -56,7 +56,12 @@ M[#M + 1] = {
                                         extra_filetypes = { "json5", "toml" },
                                 }),
                                 formatting.stylua.with({
-                                        extra_args = { "--indent-width", "8", "--indent-type", "Spaces" },
+                                        extra_args = {
+                                                "--indent-width",
+                                                "8",
+                                                "--indent-type",
+                                                "Spaces",
+                                        },
                                 }),
                         },
                         on_attach = function(_, bufnr)
