@@ -1,4 +1,0 @@
-set -o emacs
-shopt -s autocd
-set bell-style none
-[ -f "$HOME/.shrc" ] && . "$HOME/.shrc" 

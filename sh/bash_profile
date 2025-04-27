@@ -1,5 +1,11 @@
+set -o emacs
+shopt -s autocd
+set bell-style none
+export CLICOLOR=1
+export PS1='\u@\h:\[\e[33m\]\w\[\e[0m\]\$ '
+
 [ -f "$HOME/.profile" ] && . "$HOME/.profile" 
-[ "$(uname)" = "Darwin" -a -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"  
 [ "$XDG_SESSION_TYPE" = "x11" -a -f "$HOME/.xinitrc" ] && . "$HOME/.xinitrc"
 
 [ -n "$SSH_TTY" ] && command -v fish >/dev/null 2>&1  && exec fish
+[ -f "$HOME/.shrc" ] && . "$HOME/.shrc" 

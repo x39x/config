@@ -1,3 +1,0 @@
-setopt AUTO_CD
-unsetopt BEEP
-[ -f "$HOME/.shrc" ] && . "$HOME/.shrc" 
