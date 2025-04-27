@@ -9,10 +9,8 @@
       ~/.vim/vimrc: vimrc
       ~/.screenrc: screenrc
       ~/.shrc: sh/shrc
-      ~/.bashrc: sh/bashrc
       ~/.profile: sh/profile
       ~/.bash_profile: sh/bash_profile
-      ~/.zshrc: sh/zshrc
       ~/.zshenv: sh/zshenv
       ~/.config/fish: fish
       ~/.tmux.conf: tmux.conf
