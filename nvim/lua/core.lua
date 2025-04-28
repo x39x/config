@@ -179,6 +179,7 @@ keymap({ "i", "n", "x" }, "<M-s>", function()
         vim.cmd("stopinsert")
         vim.cmd("w")
 end, key_opts)
+keymap("n", "<leader>s", require("utils.M").insert_line, key_opts)
 
 keymap("i", "jk", "<esc>", key_opts)
 keymap({ "n", "o" }, "L", "$", key_opts)
