@@ -1,43 +1,42 @@
 # 参考default.yaml
 patch:
+    # 方案列表
+    schema_list:
+        - schema: double_pinyin
 
-  # 方案列表
-  schema_list:
-    - schema: double_pinyin
+    # 菜单
+    menu:
+        page_size: 6 # 候选词个数
 
-  # 菜单
-  menu:
-    page_size: 6  # 候选词个数
+    # 方案选单相关
+    switcher:
+        caption: 「方案选单」
+        hotkeys:
+            - Alt+Shift+grave
+        fold_options: false
+        save_options: # 开关记忆（方案中的 switches），从方案选单（而非快捷键）切换时会记住的选项，需要记忆的开关不能设定 reset
+            - traditionalization
+            - emoji
+            - full_shape
 
-  # 方案选单相关
-  switcher:
-    caption: 「方案选单」
-    hotkeys:
-      - Alt+Shift+grave
-    fold_options: false
-    save_options:  # 开关记忆（方案中的 switches），从方案选单（而非快捷键）切换时会记住的选项，需要记忆的开关不能设定 reset
-      - traditionalization
-      - emoji
-      - full_shape
+    # 中英切换
+    ascii_composer:
+        good_old_caps_lock: false
+        switch_key:
+            Caps_Lock: clear
+            Shift_L: noop
+            Shift_R: noop
+            Control_L: noop
+            Control_R: noop
 
-  # 中英切换
-  ascii_composer:
-    good_old_caps_lock: false 
-    switch_key:
-      Caps_Lock: clear 
-      Shift_L: noop
-      Shift_R: noop
-      Control_L: noop
-      Control_R: noop
-
-  # 快捷键
-  key_binder:
-    bindings:
-      # Tab / Shift+Tab 切换光标至下/上一个拼音
-      - { when: composing, accept: Shift+Tab, send: Shift+Left }
-      - { when: composing, accept: Tab, send: Shift+Right }
-      # 翻页
-      - { when: has_menu, accept: minus, send: Page_Up }
-      - { when: has_menu, accept: equal, send: Page_Down }
-      - { when: paging, accept: bracketleft, send: Page_Up }
-      - { when: has_menu, accept: bracketright, send: Page_Down }
+    # 快捷键
+    key_binder:
+        bindings:
+            # Tab / Shift+Tab 切换光标至下/上一个拼音
+            - { when: composing, accept: Shift+Tab, send: Shift+Left }
+            - { when: composing, accept: Tab, send: Shift+Right }
+            # 翻页
+            - { when: has_menu, accept: minus, send: Page_Up }
+            - { when: has_menu, accept: equal, send: Page_Down }
+            - { when: paging, accept: bracketleft, send: Page_Up }
+            - { when: has_menu, accept: bracketright, send: Page_Down }
