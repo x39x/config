@@ -53,11 +53,16 @@ M.trouble.prev = function()
                 require("trouble").prev({ jump = true })
         end
 end
-
 M.trouble.close = function()
         if trouble.is_open({}) then
                 require("trouble").close()
         end
+end
+
+--FUNC:
+M.insert_line = function()
+        local row, _ = unpack(vim.api.nvim_win_get_cursor(0))
+        vim.api.nvim_buf_set_lines(0, row, row, true, { "" })
 end
 
 return M
