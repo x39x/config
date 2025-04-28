@@ -34,6 +34,9 @@ return {
                         semantic = {
                                 variable = false,
                         },
+                        runtime = {
+                                version = "LuaJIT",
+                        },
                 },
         },
 }
