@@ -6,7 +6,12 @@ local colors = {
         miku = "#ACB5DE",
         white = "#f8f8f8",
         purple0 = "#b392f0",
+
         blue1 = "#79b8ff",
+        blue2 = "#6db0fc",
+
+        info = "#316bcd",
+        link_blue = "#1976D2",
 
         fg = "#888888",
         white0 = "#FFFFFF",
@@ -29,7 +34,6 @@ local colors = {
         yellow = "#ffab70",
         search1 = "#FCE094",
 
-        link_blue = "#1976D2",
         visual_bule = "#264F78",
         green1 = "#0FBC7A",
         greenaaa = "#9db1c5",
@@ -51,8 +55,6 @@ local colors = {
         diffDelete = "#494949",
 
         --TODO: lsp diff
-        warn = "#FF9800",
-        info = "#316bcd",
         diff_add = "#1B7F37",
         diff_change = "#2b6bab",
         git_delete = "#cd3131",
@@ -63,6 +65,7 @@ local colors = {
         -- seaaa = "#515C6A",
         -- ruler = "#2A2A2A",
         --  min dakr diff remove bg #691B24 difffff = "#611B27",
+        --  #cd9731
 }
 
 local function m39k()
@@ -111,7 +114,7 @@ local function m39k()
         hl("MoreMsg", { fg = colors.purple0 })
         hl("ModeMsg", { fg = colors.fg })
         hl("ErrorMsg", { fg = colors.error })
-        hl("WarningMsg", { fg = colors.warn })
+        hl("WarningMsg", { fg = colors.orange })
         hl("WildMenu", { fg = colors.light_gray, bg = colors.bg3 })
         hl("Conceal", { fg = colors.comment })
         hl("Whitespace", { fg = colors.border })
@@ -120,8 +123,8 @@ local function m39k()
         hl("Comment", { fg = colors.comment, italic = true })
         hl("String", { fg = colors.yellow })
         hl("Character", { fg = colors.yellow })
-        hl("Number", { fg = colors.blue1 })
-        hl("Float", { fg = colors.white })
+        hl("Number", { fg = colors.blue2 })
+        hl("Float", { fg = colors.blue2 })
         hl("Boolean", { fg = colors.purple0 })
         hl("Keyword", { fg = colors.keyword })
         hl("Operator", { fg = colors.medium_gray })
@@ -160,8 +163,6 @@ local function m39k()
         hl("@string.special.symbol", { fg = colors.purple0 })
         hl("@character", { fg = colors.yellow })
         hl("@character.special", { fg = colors.yellow })
-        hl("@number", { fg = colors.blue1 })
-        hl("@number.float", { fg = colors.blue1 })
         hl("@boolean", { fg = colors.purple0 })
         hl("@function", { fg = colors.blue1 })
         hl("@function.call", { fg = colors.blue1 })
@@ -213,7 +214,7 @@ local function m39k()
         hl("@text.reference", { fg = colors.purple0 })
         hl("@text.todo", { fg = colors.light_gray, bg = colors.bg3, bold = true })
         hl("@text.note", { fg = colors.info, bg = colors.bg3 })
-        hl("@text.warning", { fg = colors.warn, bg = colors.bg3 })
+        hl("@text.warning", { fg = colors.orange, bg = colors.bg3 })
         hl("@text.danger", { fg = colors.error, bg = colors.bg3 })
         hl("@tag", { fg = colors.purple0 })
         hl("@tag.attribute", { fg = colors.blue1 })
@@ -250,23 +251,23 @@ local function m39k()
         hl("LspInlayHint", { fg = colors.comment, italic = true })
         -- Diagnostics (LSP)
         hl("DiagnosticError", { fg = colors.error })
-        hl("DiagnosticWarn", { fg = colors.warn })
+        hl("DiagnosticWarn", { fg = colors.orange })
         hl("DiagnosticInfo", { fg = colors.info })
         hl("DiagnosticHint", { fg = colors.purple0 })
         hl("DiagnosticUnderlineError", { sp = colors.error, undercurl = true })
-        hl("DiagnosticUnderlineWarn", { sp = colors.warn, undercurl = true })
+        hl("DiagnosticUnderlineWarn", { sp = colors.orange, undercurl = true })
         hl("DiagnosticUnderlineInfo", { sp = colors.info, undercurl = true })
         hl("DiagnosticUnderlineHint", { sp = colors.purple0, undercurl = true })
         hl("DiagnosticSignError", { fg = colors.error })
-        hl("DiagnosticSignWarn", { fg = colors.warn })
+        hl("DiagnosticSignWarn", { fg = colors.orange })
         hl("DiagnosticSignInfo", { fg = colors.info })
         hl("DiagnosticSignHint", { fg = colors.purple0 })
         hl("DiagnosticFloatingError", { fg = colors.error })
-        hl("DiagnosticFloatingWarn", { fg = colors.warn })
+        hl("DiagnosticFloatingWarn", { fg = colors.orange })
         hl("DiagnosticFloatingInfo", { fg = colors.info })
         hl("DiagnosticFloatingHint", { fg = colors.purple0 })
         hl("DiagnosticVirtualTextError", { fg = colors.error, italic = true })
-        hl("DiagnosticVirtualTextWarn", { fg = colors.warn, italic = true })
+        hl("DiagnosticVirtualTextWarn", { fg = colors.orange, italic = true })
         hl("DiagnosticVirtualTextInfo", { fg = colors.info, italic = true })
         hl("DiagnosticVirtualTextHint", { fg = colors.purple0, italic = true })
 
