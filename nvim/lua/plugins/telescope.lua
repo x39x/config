@@ -1,6 +1,3 @@
-local tools = require("utils.telescope_tools")
-local theme = require("utils.telescope_tools").picker_theme
-
 local M = {
         "nvim-telescope/telescope.nvim",
 }
@@ -17,6 +14,8 @@ M.dependencies = {
 }
 
 M.config = function()
+        local tools = require("utils.telescope_tools")
+        local theme = require("utils.telescope_tools").picker_theme
         local telescope = require("telescope")
         local actions = require("telescope.actions")
         local trouble = require("trouble.sources.telescope")
@@ -84,11 +83,9 @@ M.config = function()
                                 mappings = map({
                                         i = {
                                                 ["<c-d>"] = "delete_buffer",
-                                                ["<M-w>"] = "delete_buffer",
                                         },
                                         n = {
                                                 ["<c-d>"] = "delete_buffer",
-                                                ["<M-w>"] = "delete_buffer",
                                         },
                                 }),
                                 path_display = { "tail" },

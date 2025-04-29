@@ -1,4 +1,11 @@
 local M = {}
+local pickers = require("telescope.pickers")
+local finders = require("telescope.finders")
+local conf = require("telescope.config").values
+local themes = require("telescope.themes")
+
+local actions = require("telescope.actions")
+local action_state = require("telescope.actions.state")
 
 M.picker_theme = {
         single_dropdown = function(opts)
@@ -31,8 +38,6 @@ M.picker_theme = {
 }
 -- NOTE:  Custom Pickers
 local create_mapping = function(prompt_bufnr, mapping_config)
-        local actions = require("telescope.actions")
-        local action_state = require("telescope.actions.state")
         return function()
                 local selection = action_state.get_selected_entry()
 
@@ -41,33 +46,27 @@ local create_mapping = function(prompt_bufnr, mapping_config)
                 mapping_config.action(selection)
         end
 end
-
 function M.custom_picker(opts)
-        -- require
-        local pickers = require("telescope.pickers")
-        local finders = require("telescope.finders")
-        local conf = require("telescope.config").values
-        local utils = require("telescope.utils")
-        local actions = require("telescope.actions")
-        local theme = require("telescope.themes").get_ivy(M.picker_theme.simple_ivy())
-        local shell = vim.o.shell or "/bin/sh"
+        local shell = "/bin/sh"
+        local theme = opts.theme or themes.get_ivy(M.picker_theme.simple_ivy())
 
         pickers.new(theme, {
                 prompt_title = opts.title,
-
-                finder = finders.new_table({
-                        results = utils.get_os_command_output({ shell, "-c", opts.cmd }),
-                        entry_maker = opts.entry_maker,
+                finder = finders.new_oneshot_job({ shell, "-c", opts.cmd }, {
+                        entry_maker = opts.entry_maker or function(line)
+                                return { value = line, display = line, ordinal = line }
+                        end,
                 }),
-                sorter = conf.generic_sorter(),
+                sorter = opts.sorter or conf.generic_sorter(),
 
                 attach_mappings = function(prompt_bufnr, map)
                         -- Set default mapping '<cr>'
                         actions.select_default:replace(create_mapping(prompt_bufnr, opts.default_mappings))
                         -- Add extra mappings
-                        for map_key, map_action in pairs(opts.extra_mappings) do
-                                map({ "i", "n" }, map_key, create_mapping(prompt_bufnr, map_action))
-                                -- keymap({ "i", }, "jk", "<esc>", key_opts)
+                        if opts.extra_mappings then
+                                for map_key, map_action in pairs(opts.extra_mappings) do
+                                        map({ "i", "n" }, map_key, create_mapping(prompt_bufnr, map_action))
+                                end
                         end
 
                         return true

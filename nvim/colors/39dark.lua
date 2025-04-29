@@ -47,23 +47,20 @@ local colors = {
         keyword = "#f97583",
         pink = "#FF7A84",
 
+        --DONE: diff
         diff_rm_bg = "#4E201E",
         diff_text = "#a12237",
         diff_addbg = "#39482B",
-
-        diffDelebg = "#292929",
+        diffDelebg = "#303030",
         diffDelete = "#494949",
-
-        --TODO: lsp diff
         diff_add = "#1B7F37",
-        diff_change = "#2b6bab",
         git_delete = "#cd3131",
         git_change = "#d68349",
-        git_ignored = "#444444",
 
         --NOTE: none
         -- seaaa = "#515C6A",
         -- ruler = "#2A2A2A",
+        -- diff_change = "#2b6bab",
         --  min dakr diff remove bg #691B24 difffff = "#611B27",
         --  #cd9731
 }

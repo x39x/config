@@ -215,7 +215,8 @@ keymap({ "n", "x" }, "f", require("flash").jump, key_opts)
 keymap("n", "<leader>n", require("nvim-tree.api").tree.open, key_opts)
 keymap("n", "<Leader>fm", require("telescope.builtin").marks, key_opts)
 keymap("n", "<leader>fr", require("telescope.builtin").builtin, key_opts)
-keymap("n", "<leader>fh", require("telescope.builtin").oldfiles, key_opts)
+-- keymap("n", "<leader>fh", require("telescope.builtin").oldfiles, key_opts)
+keymap("n", "<leader>fh", require("fzf-lua").oldfiles, key_opts)
 keymap("n", "<leader>fl", require("telescope").extensions.live_grep_args.live_grep_args, key_opts)
 keymap("n", "<leader>ff", require("telescope.builtin").find_files, key_opts)
 keymap("n", "<Leader>fs", require("telescope.builtin").colorscheme, key_opts)
@@ -243,12 +244,13 @@ autocmd("BufWritePre", {
         pattern = {
                 "*.c",
                 "*.h",
-                "*.hh",
-                "*.cpp",
-                "*.rs",
+                "*.cc",
                 "*.go",
-                "*.lua",
+                "*.hh",
                 "*.py",
+                "*.rs",
+                "*.cpp",
+                "*.lua",
 
                 "*.js",
                 "*.jsx",
