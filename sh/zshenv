@@ -1,5 +1,2 @@
 [ -f "$HOME/.profile" ] && . "$HOME/.profile" 
 [ -f "$HOME/.shrc" ] && . "$HOME/.shrc" 
-setopt AUTO_CD
-unsetopt BEEP
-export PS1=$'%n@%m:\e[0;36m%~\e[0m$ '
