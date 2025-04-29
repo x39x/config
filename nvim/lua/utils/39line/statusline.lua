@@ -225,8 +225,18 @@ local Git = {
                 local current_file = vim.fn.expand("%:p")
                 local file_dir = vim.fn.fnamemodify(current_file, ":h")
 
-                local git_root = vim.fn.systemlist('git -C "' .. file_dir .. '" rev-parse --show-toplevel')[1]
+                local result = vim.system({ "git", "-C", file_dir, "rev-parse", "--show-toplevel" }, { text = true })
+                        :wait()
+
+                if result.code ~= 0 then
+                        vim.notify("39line! statusline.lua: 233", vim.log.levels.WARN)
+                        return
+                end
+
+                local git_root = result.stdout and vim.trim(result.stdout) or nil
+
                 local git_dir = resolve_git_dir(git_root)
+
                 local head = vim.fn.readfile(git_dir .. "/HEAD")[1]
                 local branch = head and head:match("refs/heads/(.+)") or (head and head:sub(1, 7)) or "unknown"
 

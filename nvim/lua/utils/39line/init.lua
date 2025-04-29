@@ -40,10 +40,12 @@ return function()
                                 return
                         end
                         local buffer_path = vim.fn.fnamemodify(file, ":h")
-                        local git_status = vim.fn.systemlist(
-                                'git -C "' .. buffer_path .. '" rev-parse --is-inside-work-tree 2>/dev/null'
-                        )[1]
 
+                        local result = vim.system(
+                                { "git", "-C", buffer_path, "rev-parse", "--is-inside-work-tree" },
+                                { text = true }
+                        ):wait()
+                        local git_status = result.stdout and vim.split(result.stdout, "\n")[1] or nil
                         vim.b[bufnr].is_git_repo = git_status == "true"
                 end,
                 desc = "Set vim.b[bufnr].is_git_repo based on Git repository status",
