@@ -10,7 +10,7 @@ hk.bind({ "ctrl", "cmd", "shift" }, "left", windowManager("left"))
 hk.bind({ "ctrl", "cmd", "shift" }, "down", windowManager("bottom"))
 hk.bind({ "ctrl", "cmd", "shift" }, "up", windowManager("top"))
 
--- lanuch or focue app
+-- launch or focue app
 hk.bind({ "ctrl", "alt", "cmd", "shift" }, "f", lanuchOrFocusApp("Safari"))
 hk.bind({ "ctrl", "alt", "cmd", "shift" }, "d", lanuchOrFocusApp("Alacritty"))
 hk.bind({ "ctrl", "alt", "cmd", "shift" }, "x", lanuchOrFocusApp("Craft"))
