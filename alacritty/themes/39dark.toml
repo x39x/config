@@ -3,20 +3,22 @@ background = '#1e1e1e'
 foreground = '#FFFFFF'
 [colors.normal]
 black      = "#1a1a1a"
-red        = '#cc372e'
-green      = '#26a439'
-yellow     = '#cdac08'
-blue       = '#0869cb'
-magenta    = "#bf5af2"
-cyan       = '#479ec2'
-white      = '#98989d'
+red        = "#cc372e"
+green      = "#43C733"
+yellow     = "#cdac08"
+blue       = "#0869cb"
+# magenta    = "#bf5af2"
+magenta    = "#9647BF"
+cyan       = "#479ec2"
+white      = "#98989d"
 [colors.bright]
 black      = "#464646"
 red        = "#ff453a"
-green      = "#32d74b"
+green      = "#36ED29"
 yellow     = "#ffd60a"
 blue       = "#0a84ff"
-magenta    = "#FE4CFF"
+magenta    = "#bf5af2"
+# magenta    = "#FE4CFF"
 cyan       = "#76d6ff"
 white      = "#ffffff"
 [colors.cursor]

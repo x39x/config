@@ -82,4 +82,15 @@ M[#M + 1] = {
         },
         event = "VeryLazy",
 }
+
+M[#M + 1] = {
+        "NeogitOrg/neogit",
+        dependencies = {
+                "nvim-lua/plenary.nvim", -- required
+
+                -- Only one of these is needed.
+                "nvim-telescope/telescope.nvim", -- optional
+        },
+        config = true,
+}
 return M
