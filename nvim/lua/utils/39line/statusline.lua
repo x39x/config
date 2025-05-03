@@ -125,7 +125,7 @@ local FileNameBlock = {
                 self.filename = vim.api.nvim_buf_get_name(0)
         end,
 
-        FileIcon,
+        -- FileIcon,
         FileName,
         FileFlags,
         { provider = "%<" }, -- this means that the statusline is cut here when there's not enough space
