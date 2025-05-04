@@ -6,12 +6,14 @@
 - clean: ["~", "~/.config"]
 
 - link:
-      ~/.vim/vimrc: vimrc
+      ~/.vimrc: vimrc
       ~/.screenrc: screenrc
-      ~/.shrc: sh/shrc
       ~/.profile: sh/profile
       ~/.bash_profile: sh/bash_profile
+      ~/.bashrc: sh/bashrc
       ~/.zshenv: sh/zshenv
+      ~/.zshrc: sh/zshrc
+
       ~/.config/fish: fish
       ~/.tmux.conf: tmux.conf
       ~/.config/git: git
