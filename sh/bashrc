@@ -1,0 +1,9 @@
+[ ! -f "$HOME/.hushlogin" ] && touch "$HOME/.hushlogin" #don't show last login info
+[ -n "$SSH_TTY" ] && command -v fish >/dev/null 2>&1  && exec fish
+[ -n "$DISPLAY" -o -n "$TERM_PROGRAM" ] && command -v fish >/dev/null 2>&1 && fish
+
+set -o emacs
+set bell-style none
+shopt -s autocd
+export CLICOLOR=1
+export PS1='\u@\h:\[\e[32m\]\w\[\e[0m\]\$ '

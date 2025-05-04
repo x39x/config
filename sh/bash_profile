@@ -1,6 +1,2 @@
 [ -f "$HOME/.profile" ] && . "$HOME/.profile" 
 [ "$XDG_SESSION_TYPE" = "x11" -a -f "$HOME/.xinitrc" ] && . "$HOME/.xinitrc"
-[ -f "$HOME/.shrc" ] && . "$HOME/.shrc" 
-shopt -s autocd
-set bell-style none
-export PS1='\u@\h:\[\e[32m\]\w\[\e[0m\]\$ '
