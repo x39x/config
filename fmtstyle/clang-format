@@ -3,4 +3,3 @@ IndentWidth: 8
 TabWidth: 8
 UseTab: true
 BreakAfterReturnType: Automatic # int f();
-
