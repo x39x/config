@@ -12,6 +12,7 @@ local colors = {
         cyan1 = "#88aa99",
 
         purple0 = "#871094",
+        purple2 = "#74118c",
         purple1 = "#45164F",
 
         bg0 = "#FFFFFF",
@@ -72,7 +73,6 @@ local colors = {
         -- _reference = "#336ecc",
         -- regexpPaeter="#297bde",
         -- _ic_method = "#662277",
-        -- kdAtributs = "#74118c",
         -- glVariable = "#830091",
         -- cAtributes = "#851691",
         -- ctag_value = "#3d3d3d",
@@ -234,6 +234,7 @@ local function m39k()
         hl("@lsp.typemod.keyword.documentation", { fg = colors.brown0 })
         hl("@function.macro", { fg = colors.cyan3 }) -- rust
         hl("@lsp.typemod.builtinAttribute.attribute", { fg = colors.brown2 }) -- rust
+        hl("@lsp.type.parameter", { fg = colors.purple2 }) -- lua
 
         --DONE: treesitter
         hl("@tag.attribute", { fg = colors.blue1 })
@@ -247,7 +248,7 @@ local function m39k()
         hl("FlashMatch", { link = "Normal" })
         hl("FlashCurrent", { bg = colors.red1 })
         hl("FlashLabel", { fg = colors.red4, bold = true })
-        hl("BlinkCmpKind", { fg = colors.purple0, bold = true })
+        hl("BlinkCmpKind", { fg = colors.purple0 })
         hl("TelescopeSelection", { bg = colors.bg5 })
         hl("TelescopeSelectionCaret", { link = "TelescopeSelection" })
         hl("TelescopeMatching", { bg = colors.yellow3 })

@@ -42,7 +42,7 @@ local colors = {
         red0 = "#f50000",
         red = "#cd3131",
         error = "#cd3131",
-
+        red3 = "#F92572",
         red1 = "#FF7B72",
         keyword = "#f97583",
         pink = "#FF7A84",
@@ -278,7 +278,7 @@ local function m39k()
         hl("FlashMatch", { link = "Normal" })
         hl("FlashCurrent", { bg = colors.red })
         hl("FlashLabel", { fg = colors.error, bold = true })
-        hl("BlinkCmpKind", { fg = colors.purple0, bold = true })
+        hl("BlinkCmpKind", { fg = colors.purple0 })
 
         hl("TelescopeSelection", { bg = colors.indent_guide_active })
         hl("TelescopeSelectionCaret", { link = "TelescopeSelection" })
