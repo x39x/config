@@ -7,6 +7,7 @@ local lsp_rename = function()
                 end
         end)
 end
+local border = { " ", " ", " ", " ", " ", " ", " ", " " }
 return function(bufnr)
         local opts = {
                 noremap = true,
@@ -17,7 +18,7 @@ return function(bufnr)
 
         keymap("n", "gl", function()
                 vim.lsp.buf.hover({
-                        border = "single",
+                        border = border,
                 })
         end, opts)
         keymap("n", "ga", function()
@@ -27,7 +28,7 @@ return function(bufnr)
         end, opts)
         keymap("n", "ge", function()
                 vim.lsp.buf.signature_help({
-                        border = "single",
+                        border = border,
                 })
         end, opts)
         keymap("n", "gD", vim.lsp.buf.declaration, opts)
