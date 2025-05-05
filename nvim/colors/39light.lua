@@ -13,6 +13,7 @@ local colors = {
 
         purple0 = "#871094",
         purple2 = "#74118c",
+        purple3 = "#662277",
         purple1 = "#45164F",
 
         bg0 = "#FFFFFF",
@@ -32,20 +33,20 @@ local colors = {
         green3 = "#BEE6BE",
         green4 = "#E9F5E6",
 
-        red7 = "#C33720",
         red0 = "#f50000",
         red6 = "#F40A3F",
-        red1 = "#DC2626",
-        red2 = "#CE0606",
+        red7 = "#C33720",
         red3 = "#D3353F",
+        red2 = "#CE0606",
         red4 = "#de0202",
+        red1 = "#DC2626",
         red5 = "#FFEEEB",
 
         blue0 = "#152F44",
         blue1 = "#0137A6",
         blue2 = "#0133B3",
         blue3 = "#264eff",
-        blue9 = "#0E54D6", -- NO
+        blue9 = "#0E54D6",
         blue7 = "#174be6",
         blue4 = "#1750EB",
         blue5 = "#0A69DA",
@@ -73,7 +74,7 @@ local colors = {
         -- _reference = "#336ecc",
         -- regexpPaeter="#297bde",
         -- _ic_method = "#662277",
-        -- glVariable = "#830091",
+        -- purple3 = "#830091",
         -- cAtributes = "#851691",
         -- ctag_value = "#3d3d3d",
         -- _ttributes = "#414d41",
@@ -101,7 +102,7 @@ local function m39k()
         hl("PmenuMatch", { bold = true })
         hl("PmenuMatchSel", { bold = true })
         hl("TabLine", { bg = colors.bg2 })
-        hl("TabLineSel", { fg = colors.red1, bg = colors.bg0, bold = true })
+        hl("TabLineSel", { fg = colors.red1, bg = colors.bg0 })
         hl("CursorLine", { bg = colors.bg1 })
         hl("ColorColumn", { link = "CursorLine" })
         hl("StatusLine", { fg = colors.blue3 })
@@ -240,6 +241,9 @@ local function m39k()
         hl("@tag.attribute", { fg = colors.blue1 })
         hl("@variable.member", { fg = colors.blue2 }) -- lua table
         hl("@_jsx_attribute.tsx", { fg = colors.brown2 })
+        hl("@variable.parameter", { fg = colors.blue9 }) --go
+        hl("@constant.builtin", { fg = colors.brown0 }) --go
+        hl("@module", { fg = colors.purple3 }) --go
 
         --PLUG:
         hl("GitSignsAdd", { fg = colors.green0 })

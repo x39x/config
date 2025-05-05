@@ -1,5 +1,5 @@
 --NOTE: options
-local opt = vim.opt
+local opt = vim.o
 local keymap = vim.keymap.set
 local cmd = vim.api.nvim_create_user_command
 local autocmd = vim.api.nvim_create_autocmd
@@ -29,8 +29,10 @@ opt.showtabline = 2 -- tabline,0:no
 opt.laststatus = 3 --  one statusline
 opt.signcolumn = "yes" -- sign colume
 opt.list = true
-opt.listchars = { tab = "  ", extends = "⟩", precedes = "⟨", trail = "·" } --("eol:↴,tab:»·,trail:·")
-opt.fillchars = { eob = " " } -- hide  "~"
+--opt.listchars = { tab = "  ", extends = "⟩", precedes = "⟨", trail = "·" } --("eol:↴,tab:»·,trail:·")
+--opt.fillchars = { eob = " " } -- hide  "~"
+opt.listchars = "tab:  ,extends:⟩,precedes:⟨,trail:·" --("eol:↴,tab:»·,trail:·")
+opt.fillchars = "eob: " -- hide  "~"
 -- opt.completeopt = { "menu", "menuone", "noselect", "popup" } --for cmp
 --set fold
 opt.foldcolumn = "0" --show fold in line number
@@ -41,7 +43,7 @@ opt.foldenable = true
 opt.expandtab = true -- tab->spaces
 opt.shiftwidth = 8 -- the number of spaces inserted for each indentation
 opt.tabstop = 8 -- 一个tab键所占的列数
-opt.cursorline = true
+opt.cursorline = false
 opt.conceallevel = 0 -- Hide * ... 0: no ,1: leave space, 2:hide space
 
 --NOTE: //
@@ -74,7 +76,6 @@ vim.keymap.del("", "grn")
 vim.keymap.del("", "gra")
 vim.keymap.del("", "grr")
 vim.keymap.del("", "gri")
-
 vim.diagnostic.config({
         virtual_text = false,
         signs = {
@@ -118,7 +119,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
                 os.exit(1)
         end
 end
-opt.rtp:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
         spec = {
@@ -181,17 +182,17 @@ keymap({ "i", "n", "x" }, "<M-s>", function()
 end, key_opts)
 keymap("n", "<leader>s", require("utils.M").insert_line, key_opts)
 keymap("n", "<leader>rt", require("utils.M").tmux_tab_run, { desc = "Send cmd to  window runner" })
-keymap("n", "<leader>rp", require("utils.M").tmux_pane_run, { desc = "Send cmd to tmux pane" })
+keymap("n", "<leader>m", require("utils.M").tmux_pane_run, { desc = "Send cmd to tmux pane" })
 
 keymap("i", "jk", "<esc>", key_opts)
 keymap({ "n", "o" }, "L", "$", key_opts)
 keymap({ "x" }, "L", "$h", key_opts)
 keymap("", "H", "^", key_opts)
-keymap("", "K", "2k", key_opts)
-keymap("", "J", "2j", key_opts)
+-- keymap("", "K", "2k", key_opts)
+-- keymap("", "J", "2j", key_opts)
+-- keymap("", ";z", "J", key_opts)
 keymap("", "q", "%", key_opts)
 keymap("", "%", "q", key_opts)
-keymap("", ";z", "J", key_opts)
 keymap("n", ";k", "<cmd>nohl<CR>", key_opts)
 keymap("n", ";j", require("utils.M").highlightCword, key_opts)
 --buffers
@@ -224,7 +225,7 @@ keymap("n", "<leader>ff", require("telescope.builtin").find_files, key_opts)
 keymap("n", "<Leader>fs", require("telescope.builtin").colorscheme, key_opts)
 keymap("n", "<leader>fp", require("utils.zoxide").zoxide, key_opts)
 keymap("n", "<leader>fw", require("telescope.builtin").current_buffer_fuzzy_find, key_opts)
-keymap({ "n" }, "<leader>m", require("utils.M").run, key_opts)
+keymap({ "n" }, "<leader>M", require("utils.M").run, key_opts)
 keymap({ "n" }, "tx", require("utils.M").trouble.close, key_opts)
 keymap({ "n" }, "tj", require("utils.M").trouble.next, key_opts)
 keymap({ "n" }, "tk", require("utils.M").trouble.prev, key_opts)
