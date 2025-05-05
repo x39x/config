@@ -13,9 +13,9 @@ opt.termguicolors = true
 opt.splitright = true
 opt.splitbelow = true
 opt.number = true
-opt.relativenumber = true
+opt.relativenumber = false
 opt.numberwidth = 3
-opt.smartindent = true -- 智能缩进
+opt.smartindent = true
 opt.copyindent = true -- 自动缩进时，复制已有的行的缩进结构
 opt.hlsearch = true -- 高亮显示搜索的匹配结果，输入结束时才显示
 opt.incsearch = true -- 高亮显示搜索的匹配过程，每输入一个字符，就自动跳到第一个匹配的结果：
@@ -31,7 +31,7 @@ opt.signcolumn = "yes" -- sign colume
 opt.list = true
 opt.listchars = { tab = "  ", extends = "⟩", precedes = "⟨", trail = "·" } --("eol:↴,tab:»·,trail:·")
 opt.fillchars = { eob = " " } -- hide  "~"
-opt.completeopt = { "menu", "menuone", "noselect", "popup" } --for cmp
+-- opt.completeopt = { "menu", "menuone", "noselect", "popup" } --for cmp
 --set fold
 opt.foldcolumn = "0" --show fold in line number
 opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
@@ -180,6 +180,8 @@ keymap({ "i", "n", "x" }, "<M-s>", function()
         vim.cmd("w")
 end, key_opts)
 keymap("n", "<leader>s", require("utils.M").insert_line, key_opts)
+keymap("n", "<leader>rt", require("utils.M").tmux_tab_run, { desc = "Send cmd to  window runner" })
+keymap("n", "<leader>rp", require("utils.M").tmux_pane_run, { desc = "Send cmd to tmux pane" })
 
 keymap("i", "jk", "<esc>", key_opts)
 keymap({ "n", "o" }, "L", "$", key_opts)

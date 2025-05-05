@@ -5,6 +5,7 @@ local M = {
 
 local cmp_border = { " ", " ", " ", " ", " ", " ", " ", " " }
 M.dependencies = {
+
         "L3MON4D3/LuaSnip",
         build = "make install_jsregexp",
         dependencies = {
