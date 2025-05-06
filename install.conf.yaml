@@ -25,7 +25,7 @@
       ~/.config/fd/ignore: fdignore
       ~/.rgignore: ripgrep/rgignore
       ~/.config/ripgreprc: ripgrep/ripgreprc
-      ~/.config/bat/config: bat.config
+      ~/.config/bat/config: bat
 
       ~/.clangd: clangd
       ~/.clang-format: fmtstyle/clang-format
