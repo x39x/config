@@ -32,9 +32,9 @@ return {
                                 typeCheckingMode = "off",
                         },
                 },
-                pyright = {
-                        disableOrganizeImports = true,
-                },
+                -- pyright = {
+                --         disableOrganizeImports = true,
+                -- },
         },
         on_attach = function(_, bufnr)
                 lsp_keymaps(bufnr)
