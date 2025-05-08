@@ -49,7 +49,10 @@ M[#M + 1] = {
                 null_ls.setup({
                         debug = false,
                         sources = {
-                                diagnostics.codespell,
+                                diagnostics.codespell.with({
+
+                                        extra_args = { "-L", "RIME,Rime" },
+                                }),
                                 -- To increase speed, try prettierd.
                                 formatting.prettier.with({
                                         extra_args = { "--tab-width", "4" },
